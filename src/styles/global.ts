@@ -11,12 +11,13 @@ body{
     background:${(props) => props.theme.background};
     color:${(props) => props.theme["base-text"]};
     -webkit-font-smoothing:antialiased;
-    max-width: 90rem ;
-    margin: 0 auto;
 }
 body,input,textarea,button{
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size:1rem;
+}
+img{
+    max-width: 100%;
 }
 `;
