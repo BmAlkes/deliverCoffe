@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import Bg from "../assets/bg.png";
 
 export const GlobalStyle = createGlobalStyle`
 *{
@@ -11,6 +12,9 @@ body{
     background:${(props) => props.theme.background};
     color:${(props) => props.theme["base-text"]};
     -webkit-font-smoothing:antialiased;
+    background: url(${Bg});
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 body,input,textarea,button{
     font-family: "Roboto", sans-serif;
