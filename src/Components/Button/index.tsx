@@ -1,19 +1,15 @@
-import React from "react";
-import {
-  ButtonVariant,
-  ButtonVariantBG,
-  CustomButtonContainer,
-} from "./styles";
+import React, { ButtonHTMLAttributes } from "react";
+import { CustomButtonContainer } from "./styles";
 
-interface CustomButton {
-  children?: React.ReactNode;
-  variant?: ButtonVariant;
-  variantBG?: ButtonVariantBG;
-}
+export type ButtonProps = {
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; // to handle onClick functions
+  children?: React.ReactNode; // make the component able to receive children elements
+  color?: "primary" | "secondary"; // two styling options
+};
 
-const Button: React.FC<CustomButton> = ({ children, variant, variantBG }) => {
+const Button = ({ onClick, children, color = "primary" }: ButtonProps) => {
   return (
-    <CustomButtonContainer variantBG={variantBG} variant={variant}>
+    <CustomButtonContainer onClick={onClick} color={color}>
       {children}
     </CustomButtonContainer>
   );

@@ -1,30 +1,28 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import { ButtonProps } from "./index";
 
-export type ButtonVariant = "yellow2" | "white";
-export type ButtonVariantBG = "yellow" | "purple";
-
-interface CustomButtonContainerProps {
-  variantBG: ButtonVariantBG;
-  variant: ButtonVariant;
-}
-
-const buttonVariant = {
-  yellow2: "#C47F17",
-  white: "#fff",
+const COLOR = {
+  primary: css`
+    color: ${(props) => props.theme["yellow-dark"]};
+    background: ${(props) => props.theme["yellow-light"]};
+    &:hover {
+      color: ${(props) => props.theme["white"]};
+      background: ${(props) => props.theme["yellow-dark"]};
+    }
+  `,
+  secondary: css`
+    color: ${(props) => props.theme["white"]};
+    background: ${(props) => props.theme["purple-dark"]};
+    &:hover {
+      color: ${(props) => props.theme["base-button"]};
+      background: ${(props) => props.theme["purple"]};
+    }
+  `,
 };
-const buttonVariantBG = {
-  yellow: "#F1E9C9",
-  purple: "#4B2995",
-};
 
-export const CustomButtonContainer = styled.button<CustomButtonContainerProps>`
+export const CustomButtonContainer = styled.button<ButtonProps>`
   width: 100%;
-  ${(props) => {
-    return `background-color:${buttonVariantBG[props.variantBG]}`;
-  }};
-  ${(props) => {
-    return `color:${buttonVariant[props.variant]}`;
-  }};
+  ${(props) => props.color && COLOR[props.color]}
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,9 +31,4 @@ export const CustomButtonContainer = styled.button<CustomButtonContainerProps>`
   padding: 8px;
   font-weight: 600;
   transition: all 1s ease;
-  &:hover {
-    cursor: pointer;
-    background-color: ${(props) => props.theme["yellow-dark"]};
-    color: ${(props) => props.theme.white};
-  }
 `;

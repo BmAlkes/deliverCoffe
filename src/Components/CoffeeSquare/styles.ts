@@ -38,11 +38,10 @@ export const Container = styled.div`
 export const Pharse = styled.p`
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 130%;
+  font-weight: 400;
+  font-size: 17px;
   text-align: center;
-  width: 216px;
+  width: 228px;
   color: ${(props) => props.theme["base-label"]};
 `;
 
@@ -62,7 +61,6 @@ export const CartContainer = styled.div`
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   gap: 0.5rem;
-  margin: 1.5rem 0;
   padding: 1rem;
 `;
 
@@ -74,6 +72,7 @@ export const Price = styled.p`
   line-height: 130%;
   text-align: center;
   color: ${(props) => props.theme["base-text"]};
+  padding: 0.7rem 0;
 
   span {
     font-weight: 400;
@@ -89,6 +88,7 @@ export const AmountItem = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 0.4rem;
+  margin: 0;
 
   svg {
     color: ${(props) => props.theme.purple};

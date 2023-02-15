@@ -13,7 +13,9 @@ import {
 } from "./styles";
 
 export const CoffeeSection = ({ product }: any) => {
-  console.log(product);
+  const handleAddToCart = () => {
+    console.log("here");
+  };
   return (
     <SquareContainer>
       {product.map((item: any) => {
@@ -38,7 +40,7 @@ export const CoffeeSection = ({ product }: any) => {
                   <span>1</span>
                   <AiOutlinePlus size={30} />
                 </AmountItem>
-                <Button variant="white" variantBG="purple">
+                <Button color="secondary" onClick={handleAddToCart}>
                   <BsCartFill size={22} />
                 </Button>
               </CartContainer>
