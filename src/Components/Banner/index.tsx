@@ -1,6 +1,5 @@
 import React from "react";
 import { Banner, Title, OptionsContainer, SubTitle, Divider } from "./styles";
-import banner from "../../assets/Imagem.png";
 import { BsCartFill } from "react-icons/bs";
 import { MdTimer } from "react-icons/md";
 import { AiOutlineInbox } from "react-icons/ai";
@@ -38,7 +37,10 @@ export const BannerHome = () => {
         </OptionsContainer>
       </div>
       <div>
-        <img src={banner} alt="" />
+        <img
+          src="https://res.cloudinary.com/binvent/image/upload/v1676461088/BInvent%20App/Imagem_hinxg6.png"
+          alt=""
+        />
       </div>
     </Banner>
   );

@@ -1,5 +1,4 @@
 import { HeaderContainer, HeaderLeftSide } from "./styles";
-import Logo from "../../assets/logo.png";
 import { BsCartFill } from "react-icons/bs";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +8,10 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <div>
-        <img src={Logo} alt="" />
+        <img
+          src="https://res.cloudinary.com/binvent/image/upload/v1676461088/BInvent%20App/Logo_fl3mnw.png"
+          alt=""
+        />
       </div>
       <HeaderLeftSide>
         <p>Adress</p>
