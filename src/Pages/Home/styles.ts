@@ -12,4 +12,6 @@ export const HomeContainer = styled.div`
     color: #403937;
   }
 `;
-export const SquareCoffee = styled.div``;
+export const SquareCoffee = styled.div`
+  margin: 1rem 0;
+`;

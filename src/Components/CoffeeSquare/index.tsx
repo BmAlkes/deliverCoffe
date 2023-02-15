@@ -1,8 +1,16 @@
 import React from "react";
 import Button from "../Button";
 import { BsCartFill } from "react-icons/bs";
-
-import { Container, SquareContainer } from "./styles";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import {
+  AmountItem,
+  CartContainer,
+  Container,
+  Pharse,
+  Price,
+  SpanLoop,
+  SquareContainer,
+} from "./styles";
 
 export const CoffeeSection = ({ product }: any) => {
   console.log(product);
@@ -15,17 +23,25 @@ export const CoffeeSection = ({ product }: any) => {
               <img src={item.imageUrl} alt="" />
               <div>
                 {item.type.map((item: any) => {
-                  return <span key={item}> {item}</span>;
+                  return <SpanLoop key={item}> {item}</SpanLoop>;
                 })}
               </div>
               <h3>{item.name}</h3>
-              <p>{item.phrase}</p>
-              <div>
-                <span>${item.price}</span>
+              <Pharse>{item.phrase}</Pharse>
+              <CartContainer>
+                <Price>
+                  <span>$</span>
+                  {item.price}
+                </Price>
+                <AmountItem>
+                  <AiOutlineMinus size={30} />
+                  <span>1</span>
+                  <AiOutlinePlus size={30} />
+                </AmountItem>
                 <Button variant="white" variantBG="purple">
                   <BsCartFill size={22} />
                 </Button>
-              </div>
+              </CartContainer>
             </Container>
           </>
         );
