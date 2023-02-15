@@ -1,9 +1,6 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.div`
-  height: 600px;
-  padding: 1rem 0;
-
   h2 {
     margin-top: 3rem;
     margin-bottom: 3rem;
@@ -15,7 +12,4 @@ export const HomeContainer = styled.div`
     color: #403937;
   }
 `;
-export const SquareCoffee = styled.div`
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-`;
+export const SquareCoffee = styled.div``;

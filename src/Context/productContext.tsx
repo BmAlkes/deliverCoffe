@@ -3,7 +3,6 @@ import { getDocs, collection } from "firebase/firestore";
 import { db } from "../script/firebase.config";
 
 interface Products {
-  coffees: [];
   id: string;
   name: [];
   imageUrl: string;

@@ -4,8 +4,10 @@ export const Banner = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   div {
     max-width: 600px;
@@ -15,7 +17,7 @@ export const SubTitle = styled.p`
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 1.3rem;
   line-height: 130%;
   color: ${(props) => props.theme["base-subtitle"]};
   font-stretch: 100;
@@ -29,6 +31,9 @@ export const Title = styled.h1`
   font-size: 48px;
   line-height: 130%;
   color: ${(props) => props.theme["base-title"]};
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 export const OptionsContainer = styled.div`
@@ -36,6 +41,11 @@ export const OptionsContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin: 2rem 0;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
 `;
 
 export const Divider = styled.div`

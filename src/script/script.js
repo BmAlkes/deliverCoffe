@@ -19,7 +19,7 @@ const products = [
     id: "6228fc8bb7e6cb904bbe014e",
     name: ["Americano Coffee"],
     price: 9.9,
-    type: "Tradicional",
+    type: ["Tradicional"],
     phrase: "Traditional coffee made with hot water and ground beans",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_Americano_eafvpc.png",
@@ -28,7 +28,7 @@ const products = [
     id: "6228fc8bb7e6cb904bbe014e1",
     name: ["Expresso Coffee"],
     price: 9.9,
-    type: "Tradicional",
+    type: ["Tradicional"],
     phrase: "Traditional coffee made with hot water and ground beans",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Expresso_gldy5r.png",
@@ -37,7 +37,7 @@ const products = [
     id: "6228fce4b7e6cb904bbe0154",
     name: ["Expresso Cremoso"],
     price: 9.9,
-    type: "Tradicional",
+    type: ["Tradicional"],
     phrase: "Tradicional expresso with cream",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Expresso_Cremoso_p7qfry.png",
@@ -124,7 +124,7 @@ const products = [
       "https://res.cloudinary.com/binvent/image/upload/v1676384595/BInvent%20App/Type_Havaiano_trtgzs.png",
   },
   {
-    id: "6228fd63b7e6cb904bbe015c4",
+    id: "6228fd63b7e6cb904bbe015c6",
     name: "Arabic",
     price: 9.9,
     type: ["Special"],
@@ -133,7 +133,7 @@ const products = [
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_%C3%81rabe_gde9v9.png",
   },
   {
-    id: "6228fd63b7e6cb904bbe015c5",
+    id: "6228fd63b7e6cb904bbe015c7",
     name: "Irish",
     price: 9.9,
     type: ["Special", "Alcohol"],

@@ -6,15 +6,15 @@ import {
 } from "./styles";
 
 interface CustomButton {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   variant?: ButtonVariant;
   variantBG?: ButtonVariantBG;
 }
 
-const Button: React.FC<CustomButton> = ({ ...props }) => {
+const Button: React.FC<CustomButton> = ({ children, variant, variantBG }) => {
   return (
-    <CustomButtonContainer variantBG={"yellow"} variant={"yellow2"}>
-      {props.children}
+    <CustomButtonContainer variantBG={variantBG} variant={variant}>
+      {children}
     </CustomButtonContainer>
   );
 };
