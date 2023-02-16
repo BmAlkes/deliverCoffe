@@ -18,6 +18,14 @@ const COLOR = {
       background: ${(props) => props.theme["purple"]};
     }
   `,
+  Three: css`
+    color: ${(props) => props.theme["white"]};
+    background: ${(props) => props.theme["yellow-dark"]};
+    &:hover {
+      color: ${(props) => props.theme["white"]};
+      background: ${(props) => props.theme["yellow-dark"]};
+    }
+  `,
 };
 
 export const CustomButtonContainer = styled.button<ButtonProps>`

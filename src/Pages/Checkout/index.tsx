@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import {
-  AmountItem,
+  AmountItem2,
+  ButtonContainer,
+  CartConteinerCoffe,
   CartRightSide,
   CheckoutContainer,
+  ContainerValue,
+  DivContainer,
   FormLeftSide,
 } from "./styles";
 import { CiLocationOn } from "react-icons/ci";
@@ -25,9 +29,9 @@ export const Checkout = () => {
     <CheckoutContainer>
       <FormLeftSide>
         <h2>Complete Your Order</h2>
-        <div>
+        <DivContainer>
           <h3>
-            <CiLocationOn />
+            <CiLocationOn size={25} />
             Adress for Deliver
           </h3>
           <p>Inform the adress, where you wish to receive your order</p>
@@ -40,62 +44,72 @@ export const Checkout = () => {
             <input type="text" placeholder="City" />
             <input type="number" placeholder="Phone" />
           </form>
-        </div>
-        <div>
+        </DivContainer>
+        <DivContainer>
           <h3>
-            <BsCurrencyDollar />
+            <BsCurrencyDollar className="dollar" size={20} />
             Payment
           </h3>
           <p>Payment is made on delivery. Choose the way you want to pay</p>
-          <div>
+          <ButtonContainer>
             <button>
-              <BsFillCreditCard2FrontFill />
+              <BsFillCreditCard2FrontFill size={20} />
               Credit Card
             </button>
             <button>
-              <BsBank />
+              <BsBank size={20} />
               Debit Card
             </button>
             <button>
-              <GiMoneyStack />
+              <GiMoneyStack size={20} />
               Cash
             </button>
-          </div>
-        </div>
+          </ButtonContainer>
+        </DivContainer>
       </FormLeftSide>
       <CartRightSide>
         <h3>Selected Coffees</h3>
+
         <div>
-          <div>
-            {products.map((product) => {
-              return (
-                <>
-                  <div>
-                    <img src={product.imageUrl} alt="" />
+          {products.map((product) => {
+            return (
+              <CartConteinerCoffe>
+                <div>
+                  <img src={product.imageUrl} alt="" />
+                  <div className="column">
                     <p>{product.name}</p>
-                    <AmountItem>
-                      <AiOutlineMinus size={30} />
-                      <span>{product.quantity}</span>
-                      <AiOutlinePlus size={30} />
-                    </AmountItem>
-                    <Button color="secondary">
-                      <BiTrash />
-                      Remove
-                    </Button>
+                    <div className="column2">
+                      <AmountItem2>
+                        <AiOutlineMinus size={30} />
+                        <span>{product.quantity}</span>
+                        <AiOutlinePlus size={30} />
+                      </AmountItem2>
+                      <Button color="secondary">
+                        <BiTrash />
+                        Remove
+                      </Button>
+                    </div>
                   </div>
-                  <p>${product.price}</p>
-                </>
-              );
-            })}
+                </div>
+                <p>${product.price}</p>
+              </CartConteinerCoffe>
+            );
+          })}
+          <ContainerValue>
             <div>
               <p>Total de items</p>
               <span>${productsTotalPrice.toFixed(2)}</span>
+            </div>
+            <div>
               <p>Deliver</p>
               <span>${deliver}</span>
+            </div>
+            <div>
               <h3>Total</h3>
               <span>${productsTotalPrice.toFixed(2)}</span>
             </div>
-          </div>
+            <Button color="Three">Confirm Order</Button>
+          </ContainerValue>
         </div>
       </CartRightSide>
     </CheckoutContainer>
