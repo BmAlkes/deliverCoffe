@@ -22,7 +22,7 @@ export const FormLeftSide = styled.div`
   margin: 1rem 0;
   padding: 1rem;
   @media (max-width: 768px) {
-    max-width: 480px;
+    max-width: 450px;
     padding: 0;
   }
   h2 {
@@ -45,6 +45,9 @@ export const FormLeftSide = styled.div`
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
     input {
       margin: 0.5rem;
       padding: 0.5rem;
@@ -90,7 +93,7 @@ export const CartRightSide = styled.div`
   width: 500px;
   margin: 1rem 0;
   @media (max-width: 768px) {
-    max-width: 480px;
+    max-width: 450px;
     padding: 0;
   }
 
