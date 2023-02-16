@@ -18,7 +18,6 @@ interface ICartContext {
   increaseProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
   productsTotalPrice: Number;
-  clearProducts: () => void;
   deliver: number;
 }
 
@@ -33,7 +32,6 @@ export const CartContext = createContext<ICartContext>({
   increaseProductQuantity: () => {},
   decreaseProductQuantity: () => {},
   productsTotalPrice: 0,
-  clearProducts: () => {},
   deliver: 10,
 });
 
@@ -119,7 +117,6 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
         increaseProductQuantity,
         decreaseProductQuantity,
         productsTotalPrice,
-        clearProducts,
       }}
     >
       {children}

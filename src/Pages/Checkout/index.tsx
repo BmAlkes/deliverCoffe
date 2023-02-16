@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import {
   AmountItem2,
   ButtonContainer,
-  CartConteinerCoffe,
   CartRightSide,
   CheckoutContainer,
   ContainerValue,
@@ -18,9 +17,8 @@ import {
 import { GiMoneyStack } from "react-icons/gi";
 
 import { CartContext } from "../../Context/cartContext";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import Button from "../../Components/Button";
-import { BiTrash } from "react-icons/bi";
+import { Cart } from "../../Components/Cart";
 
 export const Checkout = () => {
   const { products, productsTotalPrice, deliver } = useContext(CartContext);
@@ -72,28 +70,7 @@ export const Checkout = () => {
 
         <div>
           {products.map((product) => {
-            return (
-              <CartConteinerCoffe>
-                <div>
-                  <img src={product.imageUrl} alt="" />
-                  <div className="column">
-                    <p>{product.name}</p>
-                    <div className="column2">
-                      <AmountItem2>
-                        <AiOutlineMinus size={30} />
-                        <span>{product.quantity}</span>
-                        <AiOutlinePlus size={30} />
-                      </AmountItem2>
-                      <Button color="secondary">
-                        <BiTrash />
-                        Remove
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-                <p>${product.price}</p>
-              </CartConteinerCoffe>
-            );
+            return <Cart product={product} key={product.id} />;
           })}
           <ContainerValue>
             <div>
