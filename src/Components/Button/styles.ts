@@ -40,4 +40,20 @@ export const CustomButtonContainer = styled.button<ButtonProps>`
   font-weight: 600;
   transition: all 1s ease;
   cursor: pointer;
+  position: relative;
+
+  span {
+    font-size: 12px;
+    background-color: ${(props) => props.theme["yellow-dark"]};
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 1.7em;
+    min-width: 1.7em;
+    position: absolute;
+    top: -12px;
+    right: 0px;
+    border-radius: 50%;
+  }
 `;

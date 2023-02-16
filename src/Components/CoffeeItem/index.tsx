@@ -24,7 +24,14 @@ const CoffeeItem = ({ product }: any) => {
     addProductToCart(product);
   };
 
-  console.log(products);
+  const handleIncreaseQuantity = () => {
+    increaseProductQuantity(product.id);
+  };
+
+  const handleDecreaseQuantity = () => {
+    decreaseProductQuantity(product.id);
+  };
+
   return (
     <Container key={product.id}>
       <img src={product.imageUrl} alt="" />
@@ -41,9 +48,9 @@ const CoffeeItem = ({ product }: any) => {
           {product.price}
         </Price>
         <AmountItem>
-          <AiOutlineMinus size={30} />
+          <AiOutlineMinus size={30} onClick={handleDecreaseQuantity} />
           <span>{product.quantity}</span>
-          <AiOutlinePlus size={30} />
+          <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
         </AmountItem>
         <Button color="secondary" onClick={handleAddProductToCart}>
           <BsCartFill size={22} />
