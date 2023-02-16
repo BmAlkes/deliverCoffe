@@ -97,10 +97,10 @@ export const ButtonContainer = styled.div`
 `;
 
 export const CartRightSide = styled.div`
-  width: 500px;
+  width: 450px;
   margin: 1rem 0;
   @media (max-width: 768px) {
-    max-width: 450px;
+    width: 320px;
     padding: 0;
     margin: 0 auto;
   }
