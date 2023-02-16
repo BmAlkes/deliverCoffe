@@ -64,6 +64,9 @@ export const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   button {
     width: 158px;
@@ -85,6 +88,10 @@ export const ButtonContainer = styled.div`
     }
     &:hover {
       background-color: ${(props) => props.theme["purpe-light"]};
+    }
+    @media (max-width: 768px) {
+      width: 80%;
+      justify-content: center;
     }
   }
 `;
