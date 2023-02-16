@@ -102,6 +102,7 @@ export const CartRightSide = styled.div`
   @media (max-width: 768px) {
     max-width: 450px;
     padding: 0;
+    margin: 0 auto;
   }
 
   h3 {
@@ -119,17 +120,13 @@ export const CartConteinerCoffe = styled.div`
   align-items: center;
   justify-content: space-between;
   @media (max-width: 768px) {
-    max-width: 450px;
     padding: 0 !important;
+    flex-direction: column;
   }
 
   div {
     display: flex;
     padding: 1rem;
-    @media (max-width: 768px) {
-      max-width: 450px;
-      padding: 1rem 0;
-    }
   }
   img {
     width: 70px;
@@ -143,6 +140,12 @@ export const CartConteinerCoffe = styled.div`
   }
   .column2 {
     padding: 0;
+    @media (max-width: 768px) {
+      padding: 1rem 0;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
   }
   p {
     font-family: "Roboto";
@@ -162,7 +165,6 @@ export const AmountItem2 = styled.div`
   justify-content: space-between;
   padding: 0.2rem;
   width: 100px;
-  height: 42px;
   margin-right: 5px;
 
   svg {
