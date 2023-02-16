@@ -118,10 +118,18 @@ export const CartConteinerCoffe = styled.div`
   border-bottom: 1px solid #d7d5d5;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    max-width: 450px;
+    padding: 0 !important;
+  }
 
   div {
     display: flex;
     padding: 1rem;
+    @media (max-width: 768px) {
+      max-width: 450px;
+      padding: 1rem 0;
+    }
   }
   img {
     width: 70px;
