@@ -127,10 +127,17 @@ export const CartConteinerCoffe = styled.div`
   div {
     display: flex;
     padding: 1rem;
+    @media (max-width: 768px) {
+      padding: 1rem 0;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
   img {
     width: 70px;
     object-fit: contain;
+    margin-top: 20px;
   }
   .column {
     flex-direction: column;
