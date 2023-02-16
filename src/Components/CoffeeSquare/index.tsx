@@ -1,52 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "../Button";
 import { BsCartFill } from "react-icons/bs";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import {
-  AmountItem,
-  CartContainer,
-  Container,
-  Pharse,
-  Price,
-  SpanLoop,
-  SquareContainer,
-} from "./styles";
+import { SquareContainer } from "./styles";
+import { CartContext } from "../../Context/cartContext";
+import { ProductContext } from "../../Context/productContext";
+import CoffeeItem from "../CoffeeItem";
 
-export const CoffeeSection = ({ product }: any) => {
-  const handleAddToCart = () => {
-    console.log("here");
-  };
+export const CoffeeSection = () => {
+  const { listProduct } = useContext(ProductContext);
+
   return (
     <SquareContainer>
-      {product.map((item: any) => {
-        return (
-          <>
-            <Container key={item.id}>
-              <img src={item.imageUrl} alt="" />
-              <div>
-                {item.type.map((item: any) => {
-                  return <SpanLoop key={item}> {item}</SpanLoop>;
-                })}
-              </div>
-              <h3>{item.name}</h3>
-              <Pharse>{item.phrase}</Pharse>
-              <CartContainer>
-                <Price>
-                  <span>$</span>
-                  {item.price}
-                </Price>
-                <AmountItem>
-                  <AiOutlineMinus size={30} />
-                  <span>1</span>
-                  <AiOutlinePlus size={30} />
-                </AmountItem>
-                <Button color="secondary" onClick={handleAddToCart}>
-                  <BsCartFill size={22} />
-                </Button>
-              </CartContainer>
-            </Container>
-          </>
-        );
+      {listProduct.map((product: any) => {
+        return <CoffeeItem product={product} key={product.id} />;
       })}
     </SquareContainer>
   );

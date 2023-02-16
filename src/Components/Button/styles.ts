@@ -31,4 +31,5 @@ export const CustomButtonContainer = styled.button<ButtonProps>`
   padding: 8px;
   font-weight: 600;
   transition: all 1s ease;
+  cursor: pointer;
 `;

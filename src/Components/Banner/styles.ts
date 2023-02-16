@@ -53,6 +53,9 @@ export const Divider = styled.div`
     display: flex;
     align-items: center;
     margin: 1rem 0;
+    @media (max-width: 768px) {
+      margin: 0.4rem;
+    }
   }
   p {
     font-family: "Roboto";

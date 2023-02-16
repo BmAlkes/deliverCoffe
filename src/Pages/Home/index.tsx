@@ -5,14 +5,12 @@ import { ProductContext } from "../../Context/productContext";
 import { HomeContainer, SquareCoffee } from "./styles";
 
 export const Home = () => {
-  const { listProduct } = useContext(ProductContext);
-  console.log(listProduct);
   return (
     <HomeContainer>
       <BannerHome />
       <h2>Our Coffees</h2>
       <SquareCoffee>
-        <CoffeeSection product={listProduct} />
+        <CoffeeSection />
       </SquareCoffee>
     </HomeContainer>
   );
