@@ -185,5 +185,10 @@ export const ContainerValue = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media (max-width: 768px) {
+      max-width: 450px;
+      padding: 0;
+      margin: 0 auto;
+    }
   }
 `;
