@@ -106,7 +106,7 @@ export const Checkout = () => {
             </div>
             <div>
               <h3>Total</h3>
-              <span>${productsTotalPrice.toFixed(2)}</span>
+              <h3>${productsTotalPrice.toFixed(2)}</h3>
             </div>
             <Button color="Three">Confirm Order</Button>
           </ContainerValue>

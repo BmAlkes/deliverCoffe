@@ -5,6 +5,11 @@ export const CheckoutContainer = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   gap: 2rem;
+  margin: 0 1rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const DivContainer = styled.div`
@@ -16,6 +21,10 @@ export const FormLeftSide = styled.div`
   flex: 1;
   margin: 1rem 0;
   padding: 1rem;
+  @media (max-width: 768px) {
+    max-width: 480px;
+    padding: 0;
+  }
   h2 {
     margin: 1rem 0;
   }
@@ -80,6 +89,10 @@ export const ButtonContainer = styled.div`
 export const CartRightSide = styled.div`
   width: 500px;
   margin: 1rem 0;
+  @media (max-width: 768px) {
+    max-width: 480px;
+    padding: 0;
+  }
 
   h3 {
     margin: 1rem 0;
