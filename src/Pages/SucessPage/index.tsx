@@ -34,9 +34,9 @@ export const SucesssPage = () => {
           <div>
             <CiDollar className="darkYellow" size={22} />
             <p>Payment on delivery</p>
-            <p>
+            <span>
               <strong>{paymentMethodClient}</strong>
-            </p>
+            </span>
           </div>
           <div></div>
         </BorderContainer>

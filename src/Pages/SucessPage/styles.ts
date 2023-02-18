@@ -4,6 +4,12 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 60vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem 0;
+  }
 
   h2 {
     color: ${(props) => props.theme["yellow-dark"]};
@@ -52,8 +58,9 @@ export const BorderContainer = styled.div`
     font-size: 16px;
     line-height: 130%;
     color: ${(props) => props.theme["base-text"]};
+    display: block;
+    margin-right: 1rem;
   }
-
   svg {
     width: 2rem;
     height: 2rem;
