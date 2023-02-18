@@ -7,7 +7,6 @@ import { CartContext } from "../../Context/cartContext";
 export const SucesssPage = () => {
   const { clientInformation, paymentMethodClient, products } =
     useContext(CartContext);
-  console.log(clientInformation, products);
   return (
     <Container>
       <div>
