@@ -3,6 +3,7 @@ import { Header } from "./Components/Header";
 import DefaultLayout from "./layout";
 import { Checkout } from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
+import { SucesssPage } from "./Pages/SucessPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/checkout" element={<Checkout />} />
+            <Route path="/sucess" element={<SucesssPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

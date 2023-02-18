@@ -10,6 +10,17 @@ export const CheckoutContainer = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
   }
+  form {
+    input {
+      width: 45%;
+      display: inline-block;
+      margin: 1rem;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 2px;
+      background-color: ${(props) => props.theme["base-input"]};
+    }
+  }
 `;
 
 export const DivContainer = styled.div`
@@ -41,21 +52,7 @@ export const FormLeftSide = styled.div`
   p {
     padding-bottom: 2rem;
   }
-  form {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-    }
-    input {
-      margin: 0.5rem;
-      padding: 0.5rem;
-      border: none;
-      border-radius: 2px;
-      background-color: ${(props) => props.theme["base-input"]};
-    }
-  }
+
   .dollar {
     color: ${(props) => props.theme["purple-dark"]};
   }
@@ -87,6 +84,9 @@ export const ButtonContainer = styled.div`
       margin-right: 1rem;
     }
     &:hover {
+      background-color: ${(props) => props.theme["purpe-light"]};
+    }
+    &:focus {
       background-color: ${(props) => props.theme["purpe-light"]};
     }
     @media (max-width: 768px) {

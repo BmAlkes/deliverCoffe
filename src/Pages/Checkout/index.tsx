@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   AmountItem2,
   ButtonContainer,
@@ -19,51 +19,82 @@ import { GiMoneyStack } from "react-icons/gi";
 import { CartContext } from "../../Context/cartContext";
 import Button from "../../Components/Button";
 import { Cart } from "../../Components/Cart";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 export const Checkout = () => {
-  const { products, productsTotalPrice, deliver } = useContext(CartContext);
+  const { products, productsTotalPrice, deliver, dataClient, paymentMethod } =
+    useContext(CartContext);
+  const navigate = useNavigate();
+  const [payment, setPayment] = useState("");
+  const { register, handleSubmit } = useForm();
+
+  function handleCreateForm(data: any) {
+    dataClient(data);
+  }
+  paymentMethod(payment);
 
   return (
     <CheckoutContainer>
       <FormLeftSide>
-        <h2>Complete Your Order</h2>
-        <DivContainer>
-          <h3>
-            <CiLocationOn size={25} />
-            Adress for Deliver
-          </h3>
-          <p>Inform the adress, where you wish to receive your order</p>
+        <form onSubmit={handleSubmit(handleCreateForm)} action="">
+          <h2>Complete Your Order</h2>
+          <DivContainer>
+            <h3>
+              <CiLocationOn size={25} />
+              Adress for Deliver
+            </h3>
+            <p>Inform the adress, where you wish to receive your order</p>
 
-          <form>
-            <input type="text" placeholder=" Name of Order" />
-            <input type="text" placeholder="Street" />
-            <input type="number" placeholder="Number" />
-            <input type="text" placeholder="Complement Ap.floor" />
-            <input type="text" placeholder="City" />
-            <input type="number" placeholder="Phone" />
-          </form>
-        </DivContainer>
-        <DivContainer>
-          <h3>
-            <BsCurrencyDollar className="dollar" size={20} />
-            Payment
-          </h3>
-          <p>Payment is made on delivery. Choose the way you want to pay</p>
-          <ButtonContainer>
-            <button>
-              <BsFillCreditCard2FrontFill size={20} />
-              Credit Card
-            </button>
-            <button>
-              <BsBank size={20} />
-              Debit Card
-            </button>
-            <button>
-              <GiMoneyStack size={20} />
-              Cash
-            </button>
-          </ButtonContainer>
-        </DivContainer>
+            <input
+              type="text"
+              placeholder=" Name of Order"
+              {...register("name")}
+            />
+            <input type="text" placeholder="Street" {...register("street")} />
+            <input type="number" placeholder="Number" {...register("number")} />
+            <input
+              type="text"
+              placeholder="Complement Ap.floor"
+              {...register("complement")}
+            />
+            <input type="text" placeholder="City" {...register("city")} />
+            <input type="number" placeholder="Phone" {...register("phone")} />
+          </DivContainer>
+          <DivContainer>
+            <h3>
+              <BsCurrencyDollar className="dollar" size={20} />
+              Payment
+            </h3>
+            <p>Payment is made on delivery. Choose the way you want to pay</p>
+            <ButtonContainer>
+              <button
+                onClick={() => {
+                  setPayment("Credit Card");
+                }}
+              >
+                <BsFillCreditCard2FrontFill size={20} />
+                Credit Card
+              </button>
+              <button
+                onClick={() => {
+                  setPayment("Debit Card");
+                }}
+              >
+                <BsBank size={20} />
+                Debit Card
+              </button>
+              <button
+                onClick={() => {
+                  setPayment("Cash Card");
+                }}
+              >
+                <GiMoneyStack size={20} />
+                Cash
+              </button>
+            </ButtonContainer>
+          </DivContainer>
+        </form>
       </FormLeftSide>
       <CartRightSide>
         <h3>Selected Coffees</h3>
@@ -85,9 +116,11 @@ export const Checkout = () => {
               <h3>Total</h3>
               <h3>${productsTotalPrice.toFixed(2)}</h3>
             </div>
-            <Button color="Three">Confirm Order</Button>
           </ContainerValue>
         </div>
+        <Button color="Three" type="submit" onClick={() => navigate("/sucess")}>
+          Confirm Order
+        </Button>
       </CartRightSide>
     </CheckoutContainer>
   );

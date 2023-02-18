@@ -11,6 +11,15 @@ interface CartProduct extends Product {
   quantity: number;
 }
 
+interface InformationClientProps {
+  name: string;
+  street: string;
+  number: number;
+  complement: string;
+  city: string;
+  phone: number;
+}
+
 interface ICartContext {
   products: CartProduct[];
   addProductToCart: (product: Product) => void;
@@ -19,6 +28,10 @@ interface ICartContext {
   decreaseProductQuantity: (productId: string) => void;
   productsTotalPrice: Number;
   deliver: number;
+  clientInformation: {};
+  paymentMethod: (method: string) => void;
+  dataClient: (data: InformationClientProps) => void;
+  paymentMethodClient: string;
 }
 
 interface ChildrenProps {
@@ -33,10 +46,16 @@ export const CartContext = createContext<ICartContext>({
   decreaseProductQuantity: () => {},
   productsTotalPrice: 0,
   deliver: 10,
+  clientInformation: {},
+  paymentMethod: () => {},
+  dataClient: () => {},
+  paymentMethodClient: "",
 });
 
 const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
+  const [clientInformation, setClientInformation] = useState({});
+  const [paymentMethodClient, setPaymentMethodClient] = useState("");
   const deliver = 10;
   useEffect(() => {
     const productsFromLocalStorage = JSON.parse(
@@ -103,8 +122,21 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
         .filter((product) => product.quantity > 0)
     );
   };
-  const clearProducts = () => {
-    setProducts([]);
+
+  const dataClient = (data: InformationClientProps) => {
+    const inform = {
+      name: data.name,
+      street: data.street,
+      number: data.number,
+      complement: data.complement,
+      city: data.city,
+      phone: data.phone,
+    };
+    setClientInformation(inform);
+  };
+
+  const paymentMethod = (type: string) => {
+    setPaymentMethodClient(type);
   };
 
   return (
@@ -117,6 +149,10 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
         increaseProductQuantity,
         decreaseProductQuantity,
         productsTotalPrice,
+        dataClient,
+        clientInformation,
+        paymentMethod,
+        paymentMethodClient,
       }}
     >
       {children}
