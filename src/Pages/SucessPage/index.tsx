@@ -15,11 +15,11 @@ export const SucesssPage = () => {
           <div>
             <CiLocationOn className="purple" size={22} />
             <p>
-              Deliver to {clientInformation.name}, on the street
+              Deliver to {clientInformation?.name}, on the street
               <strong>
-                {clientInformation.street} {clientInformation.complement}
+                {clientInformation?.street} {clientInformation?.complement}
               </strong>
-              {clientInformation.city}
+              {clientInformation?.city}
             </p>
           </div>
           <div>
