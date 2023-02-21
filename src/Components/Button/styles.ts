@@ -30,7 +30,7 @@ const COLOR = {
 
 export const CustomButtonContainer = styled.button<ButtonProps>`
   width: 100%;
-  ${(props) => props.color && COLOR[props.color]}
+  ${(props) => COLOR[props.color || "primary"]}
   display: flex;
   align-items: center;
   justify-content: center;

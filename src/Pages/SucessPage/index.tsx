@@ -2,11 +2,10 @@ import { BsCartFill } from "react-icons/bs";
 import { CiDollar, CiLocationOn, CiTimer } from "react-icons/ci";
 import { BorderContainer, Container } from "./styles";
 import { useContext } from "react";
-import { CartContext } from "../../Context/cartContext";
+import { CartContext, useCartContext } from "../../Context/cartContext";
 
 export const SucesssPage = () => {
-  const { clientInformation, paymentMethodClient, products } =
-    useContext(CartContext);
+  const { clientInformation, paymentMethodClient } = useCartContext();
   return (
     <Container>
       <div>
@@ -16,10 +15,10 @@ export const SucesssPage = () => {
           <div>
             <CiLocationOn className="purple" size={22} />
             <p>
-              Deliver to {clientInformation.name}, on the street{" "}
+              Deliver to {clientInformation.name}, on the street
               <strong>
                 {clientInformation.street} {clientInformation.complement}
-              </strong>{" "}
+              </strong>
               {clientInformation.city}
             </p>
           </div>

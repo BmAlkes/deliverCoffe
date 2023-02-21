@@ -1,4 +1,11 @@
-import { Children, createContext, useEffect, useMemo, useState } from "react";
+import {
+  Children,
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 interface Product {
   id: string;
@@ -28,7 +35,7 @@ interface ICartContext {
   decreaseProductQuantity: (productId: string) => void;
   productsTotalPrice: Number;
   deliver: number;
-  clientInformation: {};
+  clientInformation: InformationClientProps;
   paymentMethod: (method: string) => void;
   dataClient: (data: InformationClientProps) => void;
   paymentMethodClient: string;
@@ -161,3 +168,5 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
 };
 
 export default CartContextProvide;
+
+export const useCartContext = () => useContext<ICartContext>(CartContext);
