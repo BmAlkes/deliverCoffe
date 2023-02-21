@@ -35,7 +35,7 @@ interface ICartContext {
   decreaseProductQuantity: (productId: string) => void;
   productsTotalPrice: Number;
   deliver: number;
-  clientInformation: InformationClientProps;
+  clientInformation?: InformationClientProps;
   paymentMethod: (method: string) => void;
   dataClient: (data: InformationClientProps) => void;
   paymentMethodClient: string;
@@ -53,7 +53,14 @@ export const CartContext = createContext<ICartContext>({
   decreaseProductQuantity: () => {},
   productsTotalPrice: 0,
   deliver: 10,
-  clientInformation: {},
+  clientInformation: {
+    city: "",
+    complement: "",
+    name: "",
+    number: 0,
+    phone: 0,
+    street: "",
+  },
   paymentMethod: () => {},
   dataClient: () => {},
   paymentMethodClient: "",
@@ -61,7 +68,8 @@ export const CartContext = createContext<ICartContext>({
 
 const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
-  const [clientInformation, setClientInformation] = useState({});
+  const [clientInformation, setClientInformation] =
+    useState<InformationClientProps>();
   const [paymentMethodClient, setPaymentMethodClient] = useState("");
   const deliver = 10;
   useEffect(() => {
@@ -139,7 +147,7 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
       city: data.city,
       phone: data.phone,
     };
-    setClientInformation(inform);
+    return setClientInformation(inform);
   };
 
   const paymentMethod = (type: string) => {
