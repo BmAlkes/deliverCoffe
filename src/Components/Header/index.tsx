@@ -4,6 +4,7 @@ import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { CartContext } from "../../Context/cartContext";
+import { LanguageSwitcher } from "../LanguegeSwitcher";
 
 export const Header = () => {
   const navigate = useNavigate();
@@ -22,8 +23,9 @@ export const Header = () => {
           alt=""
         />
       </div>
+      <LanguageSwitcher />
       <HeaderLeftSide>
-        <p>Adress</p>
+        <p>Tel Aviv-IL</p>
         <Button onClick={handleCheckout}>
           <BsCartFill size={22} />
           <span>{products.length}</span>

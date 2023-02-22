@@ -4,35 +4,34 @@ import { BsCartFill } from "react-icons/bs";
 import { MdTimer } from "react-icons/md";
 import { AiOutlineInbox } from "react-icons/ai";
 import { BiCoffeeTogo } from "react-icons/bi";
+import { useTranslation } from "react-i18next";
 
 export const BannerHome = () => {
+  const { t } = useTranslation();
   return (
     <Banner>
       <div>
-        <Title>Find the perfect coffee for any time of your day</Title>
-        <SubTitle>
-          With Coffee Delivery you wil get your coffee wherever you are,
-          anytime.
-        </SubTitle>
+        <Title>{t("welcome")}</Title>
+        <SubTitle>{t("title")}</SubTitle>
         <OptionsContainer>
           <Divider>
             <div>
               <BsCartFill className="yellow" size={16} />
-              <p>Simple and safe purchase</p>
+              <p>{t("sentence1")}</p>
             </div>
             <div>
               <MdTimer className="darkYellow" size={16} />
-              <p>Fast and tracked delivery</p>
+              <p>{t("sentence2")}</p>
             </div>
           </Divider>
           <Divider>
             <div>
               <AiOutlineInbox className="textBase" size={16} />
-              <p>Packaging keeps the coffee intact </p>
+              <p>{t("sentence3")}</p>
             </div>
             <div>
               <BiCoffeeTogo className="purple" size={16} />
-              <p> Coffee arrives frequently to you </p>
+              <p> {t("sentence4")} </p>
             </div>
           </Divider>
         </OptionsContainer>

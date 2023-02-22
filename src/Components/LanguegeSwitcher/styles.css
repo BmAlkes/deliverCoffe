@@ -1,0 +1,9 @@
+.flags {
+  border: none;
+  margin: 0.3rem;
+  background: transparent;
+}
+
+.flags img {
+  width: 38px;
+}

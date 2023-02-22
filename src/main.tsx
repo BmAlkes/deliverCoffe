@@ -6,6 +6,7 @@ import CartContextProvide from "./Context/cartContext";
 import ProductContextProvider from "./Context/productContext";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
+import "./i18n/index";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

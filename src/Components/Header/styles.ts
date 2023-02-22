@@ -11,13 +11,20 @@ export const HeaderContainer = styled.header`
 `;
 export const HeaderLeftSide = styled.div`
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  width: 200px;
+  align-items: stretch;
+  justify-content: center;
 
   p {
-    padding: 8px;
+    padding: 5px;
+    text-align: center;
     background: ${(props) => props.theme["purpe-light"]};
     width: 100%;
     border-radius: 4px;
     color: ${(props) => props.theme["purple-dark"]};
+  }
+  button {
+    width: 90px;
   }
 `;
