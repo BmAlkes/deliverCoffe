@@ -47,26 +47,34 @@ export const Checkout = () => {
             </h3>
             <p>{t("sub")}</p>
 
-            <input type="text" placeholder={t("name")} {...register("name")} />
             <input
               type="text"
-              placeholder={t("street")}
+              placeholder={t("name") || ""}
+              {...register("name")}
+            />
+            <input
+              type="text"
+              placeholder={t("street") || ""}
               {...register("street")}
             />
             <input
               type="number"
-              placeholder={t("number")}
+              placeholder={t("number") || ""}
               {...register("number")}
             />
             <input
               type="text"
-              placeholder={t("complement")}
+              placeholder={t("complement") || ""}
               {...register("complement")}
             />
-            <input type="text" placeholder={t("city")} {...register("city")} />
+            <input
+              type="text"
+              placeholder={t("city") || ""}
+              {...register("city")}
+            />
             <input
               type="number"
-              placeholder={t("phone")}
+              placeholder={t("phone") || ""}
               {...register("phone")}
             />
           </DivContainer>

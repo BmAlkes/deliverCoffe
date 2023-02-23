@@ -5,6 +5,9 @@ export const HeaderContainer = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 32px 0;
+  @media (max-width: 769px) {
+    flex-direction: column;
+  }
   img {
     cursor: pointer;
   }

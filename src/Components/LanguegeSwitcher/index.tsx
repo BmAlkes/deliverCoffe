@@ -17,6 +17,7 @@ export const LanguageSwitcher = () => {
     <div>
       {languageOptions.map((language) => (
         <button
+          key={language.value}
           className="flags"
           onClick={() => {
             i18n.changeLanguage(language.value);
