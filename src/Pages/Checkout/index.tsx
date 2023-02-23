@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import {
-  AmountItem2,
   ButtonContainer,
   CartRightSide,
   CheckoutContainer,
@@ -21,6 +20,7 @@ import Button from "../../Components/Button";
 import { Cart } from "../../Components/Cart";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export const Checkout = () => {
   const { products, productsTotalPrice, deliver, dataClient, paymentMethod } =
@@ -28,6 +28,7 @@ export const Checkout = () => {
   const navigate = useNavigate();
   const [payment, setPayment] = useState("");
   const { register, handleSubmit } = useForm();
+  const { t } = useTranslation();
 
   function handleCreateForm(data: any) {
     dataClient(data);
@@ -38,35 +39,43 @@ export const Checkout = () => {
     <CheckoutContainer>
       <FormLeftSide>
         <form onSubmit={handleSubmit(handleCreateForm)} action="">
-          <h2>Complete Your Order</h2>
+          <h2>{t("order")}</h2>
           <DivContainer>
             <h3>
               <CiLocationOn size={25} />
-              Adress for Deliver
+              {t("adress")}
             </h3>
-            <p>Inform the adress, where you wish to receive your order</p>
+            <p>{t("sub")}</p>
 
+            <input type="text" placeholder={t("name")} {...register("name")} />
             <input
               type="text"
-              placeholder=" Name of Order"
-              {...register("name")}
+              placeholder={t("street")}
+              {...register("street")}
             />
-            <input type="text" placeholder="Street" {...register("street")} />
-            <input type="number" placeholder="Number" {...register("number")} />
+            <input
+              type="number"
+              placeholder={t("number")}
+              {...register("number")}
+            />
             <input
               type="text"
-              placeholder="Complement Ap.floor"
+              placeholder={t("complement")}
               {...register("complement")}
             />
-            <input type="text" placeholder="City" {...register("city")} />
-            <input type="number" placeholder="Phone" {...register("phone")} />
+            <input type="text" placeholder={t("city")} {...register("city")} />
+            <input
+              type="number"
+              placeholder={t("phone")}
+              {...register("phone")}
+            />
           </DivContainer>
           <DivContainer>
             <h3>
               <BsCurrencyDollar className="dollar" size={20} />
-              Payment
+              {t("Payment")}
             </h3>
-            <p>Payment is made on delivery. Choose the way you want to pay</p>
+            <p>{t("sub")}</p>
             <ButtonContainer>
               <button
                 onClick={() => {
@@ -74,7 +83,7 @@ export const Checkout = () => {
                 }}
               >
                 <BsFillCreditCard2FrontFill size={20} />
-                Credit Card
+                {t("credidCard")}
               </button>
               <button
                 onClick={() => {
@@ -82,7 +91,7 @@ export const Checkout = () => {
                 }}
               >
                 <BsBank size={20} />
-                Debit Card
+                {t("Debit Card")}
               </button>
               <button
                 onClick={() => {
@@ -90,14 +99,14 @@ export const Checkout = () => {
                 }}
               >
                 <GiMoneyStack size={20} />
-                Cash
+                {t("Cash")}
               </button>
             </ButtonContainer>
           </DivContainer>
         </form>
       </FormLeftSide>
       <CartRightSide>
-        <h3>Selected Coffees</h3>
+        <h3>{t("TitleCart")}</h3>
 
         <div>
           {products.map((product) => {
@@ -105,21 +114,21 @@ export const Checkout = () => {
           })}
           <ContainerValue>
             <div>
-              <p>Total de items</p>
+              <p>{t("TotalItens")}</p>
               <span>${productsTotalPrice.toFixed(2)}</span>
             </div>
             <div>
-              <p>Deliver</p>
+              <p>{t("Deliver")}</p>
               <span>${deliver}</span>
             </div>
             <div>
-              <h3>Total</h3>
+              <h3>{t("Total")}</h3>
               <h3>${productsTotalPrice.toFixed(2)}</h3>
             </div>
           </ContainerValue>
         </div>
         <Button color="Three" type="submit" onClick={() => navigate("/sucess")}>
-          Confirm Order
+          {t("Confirm Order")}
         </Button>
       </CartRightSide>
     </CheckoutContainer>

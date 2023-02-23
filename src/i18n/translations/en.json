@@ -25,10 +25,12 @@
     "TotalItens": "Total of Itens",
     "Deliver": "Deliver",
     "Total": "Total",
+    "Confirm Order": "Confirm Order",
     "confirm": "Uhu! order Confirm",
     "wait": "Now just wait for the coffee to come to you soon",
-    "detail1": "Deliver to , on the street",
+    "detail1": "Deliver to",
     "detail2": "Estimate Deliver",
-    "detail3": "Payment on delivery"
+    "detail3": "Payment on delivery",
+    "detail4": "on street"
   }
 }
