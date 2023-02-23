@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
 import { CartContext } from "../../Context/cartContext";
@@ -13,6 +13,7 @@ import {
 } from "./styled";
 
 const CoffeeItem = ({ product }: any) => {
+  const [quantity, setQuantity] = useState(product.quantity);
   const {
     addProductToCart,
     decreaseProductQuantity,
@@ -21,15 +22,15 @@ const CoffeeItem = ({ product }: any) => {
   } = useContext(CartContext);
 
   const handleAddProductToCart = () => {
-    addProductToCart(product);
+    addProductToCart(product, quantity);
   };
 
   const handleIncreaseQuantity = () => {
-    increaseProductQuantity(product.id);
+    setQuantity(quantity + 1);
   };
 
   const handleDecreaseQuantity = () => {
-    decreaseProductQuantity(product.id);
+    setQuantity(quantity === -1 ? quantity - 1 : 0);
   };
 
   return (
@@ -49,7 +50,7 @@ const CoffeeItem = ({ product }: any) => {
         </Price>
         <AmountItem>
           <AiOutlineMinus size={30} onClick={handleDecreaseQuantity} />
-          <span>{product.quantity}</span>
+          <span>{quantity}</span>
           <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
         </AmountItem>
         <Button color="secondary" onClick={handleAddProductToCart}>

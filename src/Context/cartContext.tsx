@@ -29,7 +29,7 @@ interface InformationClientProps {
 
 interface ICartContext {
   products: CartProduct[];
-  addProductToCart: (product: Product) => void;
+  addProductToCart: (product: Product, quantity: number) => void;
   removeProductFromCart: (productId: string) => void;
   increaseProductQuantity: (productId: string) => void;
   decreaseProductQuantity: (productId: string) => void;
@@ -90,7 +90,7 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
     }, 0);
   }, [products]);
 
-  const addProductToCart = (product: Product) => {
+  const addProductToCart = (product: Product, quantity: number) => {
     //verificar se o produto ja esta no carrinho
 
     const productAlreadyInCart = products.some(
@@ -108,7 +108,7 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
       );
     }
     // se nao adiciona-lo
-    setProducts((prevState) => [...prevState, { ...product, quantity: 1 }]);
+    setProducts((prevState) => [...prevState, { ...product, quantity }]);
   };
 
   const removeProductFromCart = (ProductId: string) => {
