@@ -12,7 +12,7 @@ export const CheckoutContainer = styled.div`
   }
   form {
     input {
-      width: 45%;
+      width: 80%;
       display: inline-block;
       margin: 1rem;
       padding: 0.5rem;
