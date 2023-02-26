@@ -21,6 +21,7 @@ export const SucesssPage = () => {
               {t("detail1")}
               {clientInformation?.name}, {t("detail4")}
               <strong>
+                <br />
                 {clientInformation?.street} {clientInformation?.complement}
               </strong>
               {clientInformation?.city}
@@ -29,16 +30,16 @@ export const SucesssPage = () => {
           <div>
             <CiTimer className="yellow" size={22} />
             <p>{t("detail2")}</p>
-            <p>
-              <strong>20min</strong>
-            </p>
+
+            <strong>20min</strong>
           </div>
           <div>
             <CiDollar className="darkYellow" size={22} />
             <p>{t("detail3")}</p>
-            <span>
+            <br />
+            <p>
               <strong>{paymentMethodClient}</strong>
-            </span>
+            </p>
           </div>
           <div></div>
         </BorderContainer>

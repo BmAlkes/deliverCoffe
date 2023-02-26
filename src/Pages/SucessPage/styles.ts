@@ -60,6 +60,10 @@ export const BorderContainer = styled.div`
     color: ${(props) => props.theme["base-text"]};
     display: block;
     margin-right: 1rem;
+
+    strong {
+      margin: 0 0.3rem;
+    }
   }
   svg {
     width: 2rem;
