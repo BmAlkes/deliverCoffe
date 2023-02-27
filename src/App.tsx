@@ -5,10 +5,19 @@ import { Checkout } from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
 import { SucesssPage } from "./Pages/SucessPage";
 import { useTranslation } from "react-i18next";
+import { useAppDispatch } from "./redux/features/store";
+import { useEffect } from "react";
+import { fetchProducts } from "./redux/features/cart/cart-slice";
 
 function App() {
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <div className="App">
       <BrowserRouter>
