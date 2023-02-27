@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
+import { useSelector } from "react-redux";
 import { CartContext } from "../../Context/cartContext";
 import Button from "../Button";
 import {
@@ -11,18 +12,20 @@ import {
   Price,
   SpanLoop,
 } from "./styled";
-
+import { addProductToCart } from "../../store/cart/cart-slice";
+import { useDispatch } from "react-redux";
 const CoffeeItem = ({ product }: any) => {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(product.quantity);
-  const {
-    addProductToCart,
-    decreaseProductQuantity,
-    products,
-    increaseProductQuantity,
-  } = useContext(CartContext);
+  // const {
+  //   addProductToCart,
+  //   decreaseProductQuantity,
+  //   products,
+  //   increaseProductQuantity,
+  // } = useContext(CartContext);
 
   const handleAddProductToCart = () => {
-    addProductToCart(product, quantity);
+    dispatch(addProductToCart(product));
   };
 
   const handleIncreaseQuantity = () => {

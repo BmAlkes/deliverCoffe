@@ -9,7 +9,7 @@ interface Products {
   price: number;
   phrase: string;
 }
-interface IProductContext {
+export interface IProductContext {
   fetchProducts: () => Promise<void>;
   listProduct: Products[];
 }

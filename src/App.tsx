@@ -5,9 +5,9 @@ import { Checkout } from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
 import { SucesssPage } from "./Pages/SucessPage";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "./redux/features/store";
+import { useAppDispatch } from "./store/store";
 import { useEffect } from "react";
-import { fetchProducts } from "./redux/features/cart/cart-slice";
+import { fetchProducts } from "./store/products/product-slices";
 
 function App() {
   const { i18n } = useTranslation();

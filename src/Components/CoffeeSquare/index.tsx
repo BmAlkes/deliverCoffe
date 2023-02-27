@@ -1,17 +1,11 @@
-import React, { useContext } from "react";
-import Button from "../Button";
-import { BsCartFill } from "react-icons/bs";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { SquareContainer } from "./styles";
-import { CartContext } from "../../Context/cartContext";
-import { ProductContext } from "../../Context/productContext";
 import CoffeeItem from "../CoffeeItem";
-import { useAppSelector } from "../../redux/features/store";
+import { useAppSelector } from "../../store/store";
 
 export const CoffeeSection = () => {
   // const { listProduct } = useContext(ProductContext);
 
-  const listProduct = useAppSelector((state) => state.cart.products);
+  const listProduct = useAppSelector((state) => state.product.listProducts);
 
   return (
     <SquareContainer>

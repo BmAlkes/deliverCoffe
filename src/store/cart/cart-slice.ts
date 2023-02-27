@@ -1,21 +1,14 @@
 import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { Product } from "../../../@types/product";
-import { fetchProducts as fetchProductsApi } from "../../api";
+import { Product } from "../../@types/product";
+import { fetchProducts as fetchProductsApi } from "../api";
 
 interface InitialState {
   products: Product[];
-  status: string;
 }
 
 const initialState: InitialState = {
   products: [],
-  status: "",
 };
-
-export const fetchProducts = createAsyncThunk("cart/fetchProduct", async () => {
-  const response = await fetchProductsApi();
-  return response;
-});
 
 const cartSlice = createSlice({
   name: "cart",
@@ -65,18 +58,6 @@ const cartSlice = createSlice({
     clearCartProducts: (state) => {
       state.products = [];
     },
-  },
-  extraReducers: (builder) => {
-    builder.addCase(fetchProducts.pending, (state) => {
-      state.status = "loading";
-    });
-    builder.addCase(fetchProducts.rejected, (state) => {
-      state.status = "error";
-    });
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.products = action.payload;
-      state.status = "complete";
-    });
   },
 });
 
