@@ -1,5 +1,7 @@
 import React from "react";
+import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
+import CustomInput from "../../../Components/customButton/CustomButton";
 import {
   LoginContainer,
   LoginHeadline,
@@ -16,9 +18,20 @@ const Login = () => {
       />
       <div>
         <LoginHeadline>Enter with your account</LoginHeadline>
+        <Button color="secondary">
+          <BsGoogle size={20} />
+          Enter with Google
+        </Button>
         <LoginSubtitle>Or enter with your email</LoginSubtitle>
-        <LoginInputContainer></LoginInputContainer>
-        <LoginInputContainer></LoginInputContainer>
+        <LoginInputContainer>
+          <CustomInput placeholder="Enter your email"></CustomInput>
+        </LoginInputContainer>
+        <LoginInputContainer>
+          <CustomInput
+            placeholder="Enter your password"
+            hasError={true}
+          ></CustomInput>
+        </LoginInputContainer>
         <Button color="secondary">Enter</Button>
       </div>
     </LoginContainer>

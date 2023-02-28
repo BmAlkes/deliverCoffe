@@ -2,8 +2,7 @@ import { HeaderContainer, HeaderLeftSide } from "./styles";
 import { BsCartFill } from "react-icons/bs";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { CartContext } from "../../Context/cartContext";
+import { useState } from "react";
 import { LanguageSwitcher } from "../LanguegeSwitcher";
 import { useAppSelector } from "../../store/store";
 

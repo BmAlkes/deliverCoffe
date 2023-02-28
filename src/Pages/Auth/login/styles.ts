@@ -6,9 +6,27 @@ export const LoginContainer = styled.div`
   align-items: center;
   justify-content: space-around;
 
+  svg {
+    margin-right: 1rem;
+  }
+
   img {
     max-width: 100%;
     width: 500px;
+  }
+  div {
+    flex: 1;
+    max-width: 500px;
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column-reverse;
+    align-items: space-around;
+    justify-content: space-around;
   }
 `;
 
