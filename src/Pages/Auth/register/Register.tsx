@@ -1,14 +1,27 @@
 import React from "react";
 import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
-import CustomInput from "../../../Components/customButton/CustomButton";
+import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   RegisterContainer,
   LoginHeadline,
   LoginInputContainer,
 } from "./styles";
+import { useForm } from "react-hook-form";
 
 const Login = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const handleSubmitForm = (data: any) => {
+    console.log({ data });
+  };
+
+  console.log({ errors });
+
   return (
     <RegisterContainer>
       <img
@@ -19,29 +32,64 @@ const Login = () => {
         <LoginHeadline>Create a new account</LoginHeadline>
         <LoginInputContainer>
           <p>Name</p>
-          <CustomInput placeholder="Enter your Name"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.name}
+            placeholder="Enter your Name"
+            {...register("name", { required: true })}
+          ></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
           <p>Email</p>
-          <CustomInput placeholder="Enter your email"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.email}
+            placeholder="Enter your email"
+            type="email"
+            {...register("email", { required: true })}
+          ></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
           <p>Adress</p>
-          <CustomInput placeholder="Enter your adress"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.adress}
+            placeholder="Enter your adress"
+            {...register("adress", { required: true })}
+          ></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
           <p>Phone</p>
-          <CustomInput placeholder="Enter your phone"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.phone}
+            placeholder="Enter your phone"
+            {...register("phone", { required: true })}
+          ></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
           <p>City</p>
-          <CustomInput placeholder="Enter your City"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.city}
+            placeholder="Enter your City"
+            {...register("city", { required: true })}
+          ></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
           <p>Password</p>
-          <CustomInput placeholder="Enter your password"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.password}
+            placeholder="Enter your password"
+            type="password"
+            {...register("password", {
+              required: true,
+              minLength: 6,
+              maxLength: 14,
+            })}
+          ></CustomInput>
         </LoginInputContainer>
-        <Button color="secondary">Enter</Button>
+        <Button
+          color="secondary"
+          onClick={() => handleSubmit(handleSubmitForm)()}
+        >
+          Register
+        </Button>
       </div>
     </RegisterContainer>
   );

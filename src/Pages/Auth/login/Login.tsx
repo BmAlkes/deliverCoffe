@@ -1,7 +1,7 @@
 import React from "react";
 import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
-import CustomInput from "../../../Components/customButton/CustomButton";
+import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   LoginContainer,
   LoginHeadline,
