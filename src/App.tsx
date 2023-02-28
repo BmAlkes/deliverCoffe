@@ -9,7 +9,7 @@ import { useAppDispatch } from "./store/store";
 import { useEffect } from "react";
 import { fetchProducts } from "./store/products/product-slices";
 import Login from "./Pages/Auth/login/Login";
-import { Register } from "./Pages/Auth/register/Register";
+import Register from "./Pages/Auth/register/Register";
 
 function App() {
   const { i18n } = useTranslation();

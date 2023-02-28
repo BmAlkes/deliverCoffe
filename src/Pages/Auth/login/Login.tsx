@@ -24,13 +24,12 @@ const Login = () => {
         </Button>
         <LoginSubtitle>Or enter with your email</LoginSubtitle>
         <LoginInputContainer>
+          <p>Email</p>
           <CustomInput placeholder="Enter your email"></CustomInput>
         </LoginInputContainer>
         <LoginInputContainer>
-          <CustomInput
-            placeholder="Enter your password"
-            hasError={true}
-          ></CustomInput>
+          <p>Password</p>
+          <CustomInput placeholder="Enter your password"></CustomInput>
         </LoginInputContainer>
         <Button color="secondary">Enter</Button>
       </div>
