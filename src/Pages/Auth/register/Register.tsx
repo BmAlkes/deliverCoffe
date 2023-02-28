@@ -1,5 +1,3 @@
-import React from "react";
-import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
@@ -9,19 +7,53 @@ import {
 } from "./styles";
 import { useForm } from "react-hook-form";
 import InputError from "../../../Components/input-error-msg/InputErrorMsg";
+import { ImEnter } from "react-icons/im";
+import {
+  AuthError,
+  AuthErrorCodes,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
+import { auth, db } from "../../../script/firebase.config";
+import { addDoc, collection } from "firebase/firestore";
+import { useState } from "react";
+import validator from "validator";
 
 const Login = () => {
+  const [isLoading, setLoading] = useState(false);
   const {
     handleSubmit,
     register,
+    setError,
     formState: { errors },
   } = useForm();
 
-  const handleSubmitForm = (data: any) => {
-    console.log({ data });
+  const handleSubmitPress = async (data: any) => {
+    try {
+      // setLoading(true);
+      const userCredentials = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      await addDoc(collection(db, "users"), {
+        id: userCredentials.user.uid,
+        name: data.name,
+        email: userCredentials.user.email,
+        adress: data.adress,
+        city: data.city,
+        phone: data.phone,
+        provider: "firebase",
+      });
+    } catch (err) {
+      console.log(err);
+      const _error = err as AuthError;
+      if (_error.code === AuthErrorCodes.EMAIL_EXISTS) {
+        return setError("email", { type: "alreadyInUse" });
+      }
+    } finally {
+      setLoading(false);
+    }
   };
-
-  console.log({ errors });
 
   return (
     <RegisterContainer>
@@ -48,10 +80,21 @@ const Login = () => {
             hasError={!!errors?.email}
             placeholder="Enter your email"
             type="email"
-            {...register("email", { required: true })}
+            {...register("email", {
+              required: true,
+              validate: (value) => {
+                return validator.isEmail(value);
+              },
+            })}
           ></CustomInput>
           {errors?.email?.type === "required" && (
             <InputError>Email Required</InputError>
+          )}
+          {errors?.email?.type === "validate" && (
+            <InputError>email is not valid</InputError>
+          )}
+          {errors?.email?.type === "alreadyInUse" && (
+            <InputError>Email is already used</InputError>
           )}
         </LoginInputContainer>
         <LoginInputContainer>
@@ -111,9 +154,10 @@ const Login = () => {
         </LoginInputContainer>
         <Button
           color="secondary"
-          onClick={() => handleSubmit(handleSubmitForm)()}
+          onClick={() => handleSubmit(handleSubmitPress)()}
         >
-          Register
+          <ImEnter size={20} />
+          Register Account
         </Button>
       </div>
     </RegisterContainer>
