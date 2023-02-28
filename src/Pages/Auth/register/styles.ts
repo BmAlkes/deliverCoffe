@@ -21,6 +21,7 @@ export const RegisterContainer = styled.div`
       width: 100%;
       padding: 0 1rem;
       margin-bottom: 1rem;
+      margin-top: 1rem;
     }
   }
   @media screen and (max-width: 768px) {
