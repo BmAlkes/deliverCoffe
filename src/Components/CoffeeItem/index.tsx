@@ -12,7 +12,11 @@ import {
   Price,
   SpanLoop,
 } from "./styled";
-import { addProductToCart } from "../../store/cart/cart-slice";
+import {
+  addProductToCart,
+  increaseCartProductQuantity,
+  decreaseCartProductQuantity,
+} from "../../store/cart/cart-slice";
 import { useDispatch } from "react-redux";
 const CoffeeItem = ({ product }: any) => {
   const dispatch = useDispatch();
@@ -22,10 +26,9 @@ const CoffeeItem = ({ product }: any) => {
   //   decreaseProductQuantity,
   //   products,
   //   increaseProductQuantity,
-  // } = useContext(CartContext);
-
+  const newProduct = { ...product, quantity: quantity };
   const handleAddProductToCart = () => {
-    dispatch(addProductToCart(product));
+    dispatch(addProductToCart(newProduct));
   };
 
   const handleIncreaseQuantity = () => {
@@ -37,7 +40,7 @@ const CoffeeItem = ({ product }: any) => {
   };
 
   return (
-    <Container key={product.id}>
+    <Container data-productId={product.id}>
       <img src={product.imageUrl} alt="" />
       <div>
         {product.type.map((item: any) => {

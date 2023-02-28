@@ -21,10 +21,20 @@ import { Cart } from "../../Components/Cart";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import {
+  addProductToCart,
+  clearCartProducts,
+  decreaseCartProductQuantity,
+  increaseCartProductQuantity,
+  removeProductFromCart,
+} from "../../store/cart/cart-slice";
+import { useAppSelector } from "../../store/store";
 
 export const Checkout = () => {
-  const { products, productsTotalPrice, deliver, dataClient, paymentMethod } =
+  const { productsTotalPrice, deliver, dataClient, paymentMethod } =
     useContext(CartContext);
+  const { products } = useAppSelector((state) => state.cart);
+
   const navigate = useNavigate();
   const [payment, setPayment] = useState("");
   const { register, handleSubmit } = useForm();

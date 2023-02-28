@@ -15,7 +15,7 @@ export const HeaderContainer = styled.header`
 export const HeaderLeftSide = styled.div`
   display: flex;
   gap: 10px;
-  width: 200px;
+  width: 240px;
   align-items: stretch;
   justify-content: center;
 

@@ -1,13 +1,37 @@
-import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Product } from "../../@types/product";
-import { fetchProducts as fetchProductsApi } from "../api";
 
+interface InformationClientProps {
+  name: string;
+  street: string;
+  number: number;
+  complement: string;
+  city: string;
+  phone: number;
+}
 interface InitialState {
   products: Product[];
+  productsTotalPrice: number;
+  deliver: number;
+  paymentMethod: string;
+  clientInformation?: InformationClientProps;
+  quantity: number;
 }
 
 const initialState: InitialState = {
   products: [],
+  productsTotalPrice: 0,
+  deliver: 10,
+  paymentMethod: "",
+  clientInformation: {
+    city: "",
+    complement: "",
+    name: "",
+    number: 0,
+    phone: 0,
+    street: "",
+  },
+  quantity: 0,
 };
 
 const cartSlice = createSlice({
@@ -32,7 +56,10 @@ const cartSlice = createSlice({
         return;
       }
       // se não -> adicioná-lo
-      state.products = [...state.products, { ...product }];
+      state.products = [
+        ...state.products,
+        { ...product, quantity: product.quantity === 0 ? 1 : product.quantity },
+      ];
     },
     removeProductFromCart: (state, action: PayloadAction<string>) => {
       state.products = state.products.filter(
@@ -58,15 +85,32 @@ const cartSlice = createSlice({
     clearCartProducts: (state) => {
       state.products = [];
     },
+    paymentMethod: (state, action) => {
+      state.paymentMethod = action.payload;
+    },
+    clientInformation: (state, action) => {
+      state.clientInformation = action.payload;
+    },
   },
 });
 
+// useEffect(() => {
+//   localStorage.setItem("cartProducts", JSON.stringify(products));
+// }, [products]);
+
+// const productsTotalPrice = useMemo(() => {
+//   return products.reduce((acc, currentProduct) => {
+//     return acc + currentProduct.price * currentProduct.quantity + deliver;
+//   }, 0);
+// }, [products]);
 export const {
   addProductToCart,
   removeProductFromCart,
   increaseCartProductQuantity,
   decreaseCartProductQuantity,
   clearCartProducts,
+  paymentMethod,
+  clientInformation,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
