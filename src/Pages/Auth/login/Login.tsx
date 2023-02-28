@@ -8,8 +8,21 @@ import {
   LoginInputContainer,
   LoginSubtitle,
 } from "./styles";
+import { useForm } from "react-hook-form";
+import InputError from "../../../Components/input-error-msg/InputErrorMsg";
 
 const Login = () => {
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm();
+
+  const handleSubmitForm = (data: any) => {
+    console.log({ data });
+  };
+
+  console.log({ errors });
   return (
     <LoginContainer>
       <img
@@ -25,13 +38,38 @@ const Login = () => {
         <LoginSubtitle>Or enter with your email</LoginSubtitle>
         <LoginInputContainer>
           <p>Email</p>
-          <CustomInput placeholder="Enter your email"></CustomInput>
+          <CustomInput
+            placeholder="Enter your email"
+            hasError={!!errors?.email}
+            type="email"
+            {...register("email", { required: true })}
+          ></CustomInput>
+          {errors?.email?.type === "required" && (
+            <InputError>Email Required</InputError>
+          )}
         </LoginInputContainer>
         <LoginInputContainer>
           <p>Password</p>
-          <CustomInput placeholder="Enter your password"></CustomInput>
+          <CustomInput
+            hasError={!!errors?.password}
+            placeholder="Enter your password"
+            type="password"
+            {...register("password", {
+              required: true,
+              minLength: 6,
+              maxLength: 14,
+            })}
+          ></CustomInput>
+          {errors?.password?.type === "required" && (
+            <InputError>Password Required</InputError>
+          )}
         </LoginInputContainer>
-        <Button color="secondary">Enter</Button>
+        <Button
+          color="secondary"
+          onClick={() => handleSubmit(handleSubmitForm)()}
+        >
+          Enter
+        </Button>
       </div>
     </LoginContainer>
   );
