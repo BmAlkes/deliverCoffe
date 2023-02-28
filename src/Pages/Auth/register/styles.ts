@@ -5,6 +5,7 @@ export const RegisterContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin: 1rem 0;
 
   svg {
     margin-right: 1rem;

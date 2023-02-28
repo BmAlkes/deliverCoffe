@@ -10,6 +10,7 @@ import {
 } from "./styles";
 import { useForm } from "react-hook-form";
 import InputError from "../../../Components/input-error-msg/InputErrorMsg";
+import validator from "validator";
 
 const Login = () => {
   const {
@@ -42,10 +43,18 @@ const Login = () => {
             placeholder="Enter your email"
             hasError={!!errors?.email}
             type="email"
-            {...register("email", { required: true })}
+            {...register("email", {
+              required: true,
+              validate: (value) => {
+                return validator.isEmail(value);
+              },
+            })}
           ></CustomInput>
           {errors?.email?.type === "required" && (
             <InputError>Email Required</InputError>
+          )}
+          {errors?.email?.type === "validate" && (
+            <InputError>Is not a valid email</InputError>
           )}
         </LoginInputContainer>
         <LoginInputContainer>

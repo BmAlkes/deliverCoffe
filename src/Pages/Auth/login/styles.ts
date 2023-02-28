@@ -7,7 +7,7 @@ export const LoginContainer = styled.div`
   justify-content: space-around;
 
   svg {
-    margin-right: 1rem;
+    margin: 0 1rem;
   }
 
   img {
