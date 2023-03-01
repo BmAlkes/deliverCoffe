@@ -16,7 +16,7 @@ export const RegisterContainer = styled.div`
     max-width: 500px;
     margin: 1rem 0;
     @media screen and (max-width: 769px) {
-      width: 300px;
+      width: 250px;
     }
   }
   div {
