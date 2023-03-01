@@ -16,8 +16,10 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../../script/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import validator from "validator";
+import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../Context/userContext";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);
@@ -28,6 +30,14 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+  const { isAutheticated } = useContext(UserContext);
+
+  useEffect(() => {
+    if (isAutheticated) {
+      navigate("/");
+    }
+  }, [isAutheticated]);
   const handleSubmitPress = async (data: any) => {
     try {
       // setLoading(true);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
 import CustomInput from "../../../Components/customInput/CustomInput";
@@ -19,6 +19,8 @@ import {
 } from "firebase/auth";
 import { auth, db, googleProvider } from "../../../script/firebase.config";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { UserContext } from "../../../Context/userContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const {
@@ -27,6 +29,14 @@ const Login = () => {
     setError,
     formState: { errors },
   } = useForm();
+  const { isAutheticated } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAutheticated) {
+      navigate("/");
+    }
+  }, [isAutheticated]);
 
   const handleSubmitForm = async (data: any) => {
     try {
