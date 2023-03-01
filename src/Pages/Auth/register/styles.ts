@@ -12,13 +12,17 @@ export const RegisterContainer = styled.div`
   }
 
   img {
-    max-width: 100%;
-    width: 500px;
-    padding: 1rem;
+    width: 100%;
+    max-width: 500px;
+    margin: 1rem 0;
+    @media screen and (max-width: 769px) {
+      width: 300px;
+    }
   }
   div {
     flex: 1;
     max-width: 500px;
+    margin: 1rem 0;
     @media screen and (max-width: 768px) {
       width: 100%;
       padding: 0 1rem;
@@ -27,9 +31,13 @@ export const RegisterContainer = styled.div`
     }
   }
   @media screen and (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: space-around;
     justify-content: space-around;
+    height: 100%;
+  }
+  button {
+    margin-bottom: 2rem;
   }
 `;
 
