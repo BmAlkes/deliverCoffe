@@ -7,13 +7,16 @@ import { defaultTheme } from "./styles/themes/default";
 import "./i18n/index";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
+import { UserContextProvider } from "./Context/userContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
       <Provider store={store}>
-        <App />
+        <UserContextProvider>
+          <App />
+        </UserContextProvider>
       </Provider>
     </ThemeProvider>
   </React.StrictMode>

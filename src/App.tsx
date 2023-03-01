@@ -6,12 +6,38 @@ import { Home } from "./Pages/Home";
 import { SucesssPage } from "./Pages/SucessPage";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch } from "./store/store";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { fetchProducts } from "./store/products/product-slices";
 import Login from "./Pages/Auth/login/Login";
 import Register from "./Pages/Auth/register/Register";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, db } from "./script/firebase.config";
+import { UserContext } from "./Context/userContext";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { userConverter } from "./converter/firestore.converter";
 
 function App() {
+  const { currentUser, isAutheticated, logoutUser, loginUser } =
+    useContext(UserContext);
+
+  onAuthStateChanged(auth, async (user) => {
+    const isSigninOut = isAutheticated && !user;
+    if (isSigninOut) {
+      return logoutUser();
+    }
+
+    const isSignIn = !isAutheticated && user;
+    if (isSignIn) {
+      const querySnapshot = await getDocs(
+        query(
+          collection(db, "users").withConverter(userConverter),
+          where("id", "==", user.uid)
+        )
+      );
+      const userFromFireStore = querySnapshot.docs[0]?.data();
+      return loginUser(userFromFireStore);
+    }
+  });
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const dispatch = useAppDispatch();

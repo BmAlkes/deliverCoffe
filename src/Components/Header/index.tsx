@@ -2,11 +2,17 @@ import { HeaderContainer, HeaderLeftSide } from "./styles";
 import { BsCartFill } from "react-icons/bs";
 import Button from "../Button";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { LanguageSwitcher } from "../LanguegeSwitcher";
 import { useAppSelector } from "../../store/store";
+import { GoSignOut } from "react-icons/go";
+import { signOut } from "firebase/auth";
+import { auth } from "../../script/firebase.config";
+import { UserContext } from "../../Context/userContext";
 
 export const Header = () => {
+  const { isAutheticated, currentUser } = useContext(UserContext);
+  console.log(isAutheticated, currentUser);
   const navigate = useNavigate();
   const handleCheckout = () => {
     navigate("/checkout");
@@ -26,17 +32,28 @@ export const Header = () => {
       </div>
       <LanguageSwitcher />
       <HeaderLeftSide>
-        <Button onClick={() => navigate("/login")} color="secondary">
-          Login
-        </Button>
-        <Button onClick={() => navigate("/register")} color="secondary">
-          Register
-        </Button>
-        <p>Tel Aviv-IL</p>{" "}
+        {!isAutheticated && (
+          <>
+            {" "}
+            <Button onClick={() => navigate("/login")} color="secondary">
+              Login
+            </Button>
+            <Button onClick={() => navigate("/register")} color="secondary">
+              Register
+            </Button>
+          </>
+        )}
+
+        {isAutheticated ? <p>{currentUser?.city}</p> : <p>Israel</p>}
         <Button onClick={handleCheckout}>
           <BsCartFill size={22} />
           <span>{cart.length}</span>
         </Button>
+        {isAutheticated && (
+          <Button onClick={() => signOut(auth)}>
+            <GoSignOut size={20} />
+          </Button>
+        )}
       </HeaderLeftSide>
     </HeaderContainer>
   );

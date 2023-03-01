@@ -15,8 +15,10 @@ import {
   AuthError,
   AuthErrorCodes,
   signInWithEmailAndPassword,
+  signInWithPopup,
 } from "firebase/auth";
-import { auth } from "../../../script/firebase.config";
+import { auth, db, googleProvider } from "../../../script/firebase.config";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 const Login = () => {
   const {
@@ -45,6 +47,34 @@ const Login = () => {
     }
   };
 
+  const handleSignInGoogle = async () => {
+    try {
+      const userCredentials = await signInWithPopup(auth, googleProvider);
+      const querySnapshot = await getDocs(
+        query(
+          collection(db, "users"),
+          where("id", "==", userCredentials.user.uid)
+        )
+      );
+
+      const user = querySnapshot.docs[0]?.data;
+      if (!user) {
+        const firstname = userCredentials.user.displayName?.split(" ")[0];
+        const lastname = userCredentials.user.displayName?.split(" ")[1];
+        await addDoc(collection(db, "users"), {
+          id: userCredentials.user.uid,
+          email: userCredentials.user.email,
+          firstname,
+          lastname,
+          provider: "google",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+
   console.log({ errors });
   return (
     <LoginContainer>
@@ -54,7 +84,7 @@ const Login = () => {
       />
       <div>
         <LoginHeadline>Enter with your account</LoginHeadline>
-        <Button color="secondary">
+        <Button color="secondary" onClick={() => handleSignInGoogle()}>
           <BsGoogle size={20} />
           Enter with Google
         </Button>

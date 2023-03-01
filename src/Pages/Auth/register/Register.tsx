@@ -12,6 +12,7 @@ import {
   AuthError,
   AuthErrorCodes,
   createUserWithEmailAndPassword,
+  User,
 } from "firebase/auth";
 import { auth, db } from "../../../script/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
@@ -37,7 +38,7 @@ const Login = () => {
       );
       await addDoc(collection(db, "users"), {
         id: userCredentials.user.uid,
-        name: data.name,
+        displayName: data.name,
         email: userCredentials.user.email,
         adress: data.adress,
         city: data.city,
