@@ -7,6 +7,7 @@ export const HeaderContainer = styled.header`
   padding: 32px 0;
   @media (max-width: 769px) {
     flex-direction: column;
+    margin-bottom: 1rem;
   }
   img {
     cursor: pointer;
