@@ -39,7 +39,7 @@ export const LoginHeadline = styled.p`
   margin-bottom: 20px;
   color: ${(props) => props.theme["base-text"]};
   border-bottom: 1px solid #6c757d;
-  padding-bottom: 0.7rem;
+  padding: 0.7rem 0;
 `;
 
 export const LoginContent = styled.div`
