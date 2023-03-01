@@ -31,6 +31,13 @@
     "detail1": "Deliver to",
     "detail2": "Estimate Deliver",
     "detail3": "Payment on delivery",
-    "detail4": "on street"
+    "detail4": "on street",
+    "enterAccount": "Enter with your account",
+    "google": "Enter with your Google",
+    "or": "Or enter with your email",
+    "emailLabel": "Enter your email",
+    "password": "Password",
+    "passwordLabel": "Enter your password",
+    "buttonEnter": "Enter"
   }
 }

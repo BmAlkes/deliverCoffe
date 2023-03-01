@@ -20,6 +20,7 @@ import { useContext, useEffect, useState } from "react";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../Context/userContext";
+import Loading from "../../../Components/loading/Loading";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);
@@ -40,7 +41,7 @@ const Login = () => {
   }, [isAutheticated]);
   const handleSubmitPress = async (data: any) => {
     try {
-      // setLoading(true);
+      setLoading(true);
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         data.email,
@@ -66,6 +67,7 @@ const Login = () => {
     }
   };
 
+  if (isLoading) return <Loading />;
   return (
     <RegisterContainer>
       <img

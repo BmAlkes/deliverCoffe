@@ -6,7 +6,7 @@ export const LoadingContainer = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
-  background-color: ${(props) => props.theme["purple"]};
+  background-color: ${(props) => props.theme["purpe-light"]};
   display: flex;
   align-items: center;
   justify-content: center;

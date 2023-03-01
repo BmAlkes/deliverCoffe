@@ -31,6 +31,13 @@
     "detail1": "Entrega para",
     "detail4": "na rua",
     "detail2": "Tempo Estimado de Entrega",
-    "detail3": "Pagamento na entrega"
+    "detail3": "Pagamento na entrega",
+    "enterAccount": "Entre com sua conta",
+    "google": "Entre com sua conta Google",
+    "or": "Ou entre com seu email",
+    "emailLabel": "Digite seu email",
+    "password": "Senha",
+    "passwordLabel": "Digite sua senha",
+    "buttonEnter": "Entrar"
   }
 }

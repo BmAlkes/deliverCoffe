@@ -20,13 +20,11 @@ import Loading from "./Components/loading/Loading";
 function App() {
   const { currentUser, isAutheticated, logoutUser, loginUser } =
     useContext(UserContext);
-  const [isInitializing, setIsInitializing] = useState(true);
 
   onAuthStateChanged(auth, async (user) => {
     const isSigninOut = isAutheticated && !user;
     if (isSigninOut) {
       logoutUser();
-      return setIsInitializing(false);
     }
 
     const isSignIn = !isAutheticated && user;
@@ -39,9 +37,7 @@ function App() {
       );
       const userFromFireStore = querySnapshot.docs[0]?.data();
       loginUser(userFromFireStore);
-      return setIsInitializing(false);
     }
-    return setIsInitializing(false);
   });
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
@@ -51,7 +47,6 @@ function App() {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (isInitializing) return <Loading />;
   return (
     <div className="App">
       <BrowserRouter>

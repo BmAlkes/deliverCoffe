@@ -40,7 +40,7 @@ const CoffeeItem = ({ product }: any) => {
   };
 
   return (
-    <Container data-productId={product.id}>
+    <Container data-productid={product.id}>
       <img src={product.imageUrl} alt="" />
       <div>
         {product.type.map((item: any) => {

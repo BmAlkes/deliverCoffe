@@ -149,3 +149,12 @@ export const ContainerValue = styled.div`
     }
   }
 `;
+
+export const InputContainer = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  p:nth-child(1) {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+`;

@@ -31,6 +31,13 @@
     "detail1": "משלוח ל",
     "detail2": "הערכה מסירה",
     "detail3": "תשלום במשלוח",
-    "detail4": "ברחוב"
+    "detail4": "ברחוב",
+    "enterAccount": "היכנס עם החשבון שלך",
+    "google": "היכנס עם חשבון Google שלך",
+    "or": "או הכנס עם המייל שלך",
+    "emailLabel": "הכנס את האימייל שלך",
+    "password": "סיסמה",
+    "passwordLabel": "הכנס את הסיסמה שלך",
+    "buttonEnter": "כניסה"
   }
 }

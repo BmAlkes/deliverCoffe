@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
 import Button from "../../../Components/Button";
 import CustomInput from "../../../Components/customInput/CustomInput";
@@ -21,8 +21,11 @@ import { auth, db, googleProvider } from "../../../script/firebase.config";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 import { UserContext } from "../../../Context/userContext";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../../Components/loading/Loading";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
     register,
@@ -31,6 +34,7 @@ const Login = () => {
   } = useForm();
   const { isAutheticated } = useContext(UserContext);
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (isAutheticated) {
@@ -40,6 +44,7 @@ const Login = () => {
 
   const handleSubmitForm = async (data: any) => {
     try {
+      setIsLoading(true);
       const userCredentials = await signInWithEmailAndPassword(
         auth,
         data.email,
@@ -54,11 +59,14 @@ const Login = () => {
       if (_error.code === AuthErrorCodes.USER_DELETED) {
         return setError("email", { type: "notFound" });
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleSignInGoogle = async () => {
     try {
+      setIsLoading(true);
       const userCredentials = await signInWithPopup(auth, googleProvider);
       const querySnapshot = await getDocs(
         query(
@@ -82,10 +90,10 @@ const Login = () => {
     } catch (error) {
       console.log(error);
     } finally {
+      setIsLoading(false);
     }
   };
-
-  console.log({ errors });
+  if (isLoading) return <Loading />;
   return (
     <LoginContainer>
       <img
@@ -93,16 +101,16 @@ const Login = () => {
         alt=""
       />
       <div>
-        <LoginHeadline>Enter with your account</LoginHeadline>
+        <LoginHeadline>{t("enterAccount")}</LoginHeadline>
         <Button color="secondary" onClick={() => handleSignInGoogle()}>
           <BsGoogle size={20} />
-          Enter with Google
+          {t("google")}
         </Button>
-        <LoginSubtitle>Or enter with your email</LoginSubtitle>
+        <LoginSubtitle>{t("or")}</LoginSubtitle>
         <LoginInputContainer>
           <p>Email</p>
           <CustomInput
-            placeholder="Enter your email"
+            placeholder={t("emailLabel") || ""}
             hasError={!!errors?.email}
             type="email"
             {...register("email", {
@@ -123,10 +131,10 @@ const Login = () => {
           )}
         </LoginInputContainer>
         <LoginInputContainer>
-          <p>Password</p>
+          <p>{t("password")}</p>
           <CustomInput
             hasError={!!errors?.password}
-            placeholder="Enter your password"
+            placeholder={t("passwordLabel") || ""}
             type="password"
             {...register("password", {
               required: true,
@@ -145,7 +153,7 @@ const Login = () => {
           color="secondary"
           onClick={() => handleSubmit(handleSubmitForm)()}
         >
-          Enter
+          {t("buttonEnter")}
         </Button>
       </div>
     </LoginContainer>

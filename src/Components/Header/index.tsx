@@ -12,7 +12,6 @@ import { UserContext } from "../../Context/userContext";
 
 export const Header = () => {
   const { isAutheticated, currentUser } = useContext(UserContext);
-  console.log(isAutheticated, currentUser);
   const navigate = useNavigate();
   const handleCheckout = () => {
     navigate("/checkout");
@@ -34,7 +33,6 @@ export const Header = () => {
       <HeaderLeftSide>
         {!isAutheticated && (
           <>
-            {" "}
             <Button onClick={() => navigate("/login")} color="secondary">
               Login
             </Button>

@@ -147,11 +147,11 @@ const CartContextProvide: React.FC<ChildrenProps> = ({ children }) => {
       city: data.city,
       phone: data.phone,
     };
-    return setClientInformation(inform);
+    setClientInformation(inform);
   };
 
   const paymentMethod = (type: string) => {
-    setPaymentMethodClient(type);
+    return setPaymentMethodClient(type);
   };
 
   return (

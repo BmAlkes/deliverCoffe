@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 export const SucesssPage = () => {
   const { clientInformation, paymentMethodClient } = useCartContext();
 
+  console.log(clientInformation, paymentMethodClient);
+
   const { t } = useTranslation();
   return (
     <Container>
