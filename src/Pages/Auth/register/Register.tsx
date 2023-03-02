@@ -1,3 +1,4 @@
+import Button from "../../../Components/button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   RegisterContainer,
@@ -20,7 +21,6 @@ import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../Context/userContext";
 import Loading from "../../../Components/loading/Loading";
-import Button from "../../../Components/button/Button";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
-import Button from "../../../Components/button/Button";
+import Button from "../../../Components/button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   LoginContainer,

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ButtonProps } from "./Button";
+import { ButtonProps } from ".";
 
 const COLOR = {
   primary: css`

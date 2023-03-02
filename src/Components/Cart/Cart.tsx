@@ -3,7 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { CartContext } from "../../Context/cartContext";
 import { AmountItem2 } from "../../Pages/Checkout/styles";
-import Button from "../button/Button";
+import Button from "../button";
 import { CartConteinerCoffe } from "./styled";
 
 interface CartItemProps {

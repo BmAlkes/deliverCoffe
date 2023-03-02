@@ -1,9 +1,9 @@
 import { HeaderContainer, HeaderLeftSide } from "./styles";
 import { BsCartFill } from "react-icons/bs";
-import Button from "../button/Button";
+import Button from "../button";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { LanguageSwitcher } from "../languegeswitcher/LanguageSwitcher";
+import { LanguageSwitcher } from "../languegeswitcher";
 import { useAppSelector } from "../../store/store";
 import { GoSignOut } from "react-icons/go";
 import { signOut } from "firebase/auth";
