@@ -28,4 +28,4 @@ const Button = ({
   );
 };
 
-export default CustomButtonContainer;
+export default Button;
