@@ -69,7 +69,7 @@ export const Divider = styled.div`
   svg {
     width: 2rem;
     height: 2rem;
-    margin-right: 10px;
+    margin: 0 10px;
     color: #fff;
     padding: 0.4rem;
     background-color: black;

@@ -8,7 +8,7 @@ import {
   FormLeftSide,
   InputContainer,
 } from "./styles";
-import { CiLocationOn } from "react-icons/ci";
+import { MdLocationOn } from "react-icons/md";
 import {
   BsBank,
   BsCurrencyDollar,
@@ -34,13 +34,10 @@ import InputError from "../../Components/input-error-msg/InputErrorMsg";
 import { Cart } from "../../Components/cart/Cart";
 
 export const Checkout = () => {
-  const { productsTotalPrice, deliver, dataClient, paymentMethod } =
-    useContext(CartContext);
   const { products } = useAppSelector((state) => state.cart);
 
   const navigate = useNavigate();
   const [payment, setPayment] = useState("");
-  console.log(payment);
   const {
     register,
     handleSubmit,
@@ -62,7 +59,7 @@ export const Checkout = () => {
         <h2>{t("order")}</h2>
         <DivContainer>
           <h3>
-            <CiLocationOn size={25} />
+            <MdLocationOn size={25} />
             {t("adress")}
           </h3>
           <p>{t("sub")}</p>

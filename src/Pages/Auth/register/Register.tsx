@@ -16,11 +16,11 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../../../script/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../../Context/userContext";
 import Loading from "../../../Components/loading/Loading";
+import { useAppSelector } from "../../../store/store";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);
@@ -32,13 +32,13 @@ const Login = () => {
   } = useForm();
 
   const navigate = useNavigate();
-  const { isAutheticated } = useContext(UserContext);
+  const { isAuthenticated } = useAppSelector((state) => state.userReducer);
 
   useEffect(() => {
-    if (isAutheticated) {
+    if (isAuthenticated) {
       navigate("/");
     }
-  }, [isAutheticated]);
+  }, [isAuthenticated]);
   const handleSubmitPress = async (data: any) => {
     try {
       setLoading(true);

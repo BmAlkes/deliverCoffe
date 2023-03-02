@@ -4,8 +4,8 @@ import { Checkout } from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
 import { SucesssPage } from "./Pages/SucessPage";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch } from "./store/store";
-import { useContext, useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "./store/store";
+import { useEffect } from "react";
 import { fetchProducts } from "./store/products/product-slices";
 import Login from "./Pages/Auth/login/Login";
 import Register from "./Pages/Auth/register/Register";
@@ -14,32 +14,37 @@ import { auth, db } from "./script/firebase.config";
 import { UserContext } from "./Context/userContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { userConverter } from "./converter/firestore.converter";
+import { useSelector } from "react-redux";
 
 function App() {
-  const { currentUser, isAutheticated, logoutUser, loginUser } =
-    useContext(UserContext);
-
-  onAuthStateChanged(auth, async (user) => {
-    const isSigninOut = isAutheticated && !user;
-    if (isSigninOut) {
-      logoutUser();
-    }
-
-    const isSignIn = !isAutheticated && user;
-    if (isSignIn) {
-      const querySnapshot = await getDocs(
-        query(
-          collection(db, "users").withConverter(userConverter),
-          where("id", "==", user.uid)
-        )
-      );
-      const userFromFireStore = querySnapshot.docs[0]?.data();
-      loginUser(userFromFireStore);
-    }
-  });
   const { i18n } = useTranslation();
   document.body.dir = i18n.dir();
   const dispatch = useAppDispatch();
+
+  const isAutheticated = useAppSelector(
+    (state) => state.userReducer?.isAuthenticated
+  );
+
+  useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+      const isSigninOut = isAutheticated && !user;
+      if (isSigninOut) {
+        dispatch({ type: "LOGOUT_USER" });
+      }
+
+      const isSignIn = !isAutheticated && user;
+      if (isSignIn) {
+        const querySnapshot = await getDocs(
+          query(
+            collection(db, "users").withConverter(userConverter),
+            where("id", "==", user.uid)
+          )
+        );
+        const userFromFireStore = querySnapshot.docs[0]?.data();
+        dispatch({ type: "LOGIN_USER", payload: userFromFireStore });
+      }
+    });
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(fetchProducts());

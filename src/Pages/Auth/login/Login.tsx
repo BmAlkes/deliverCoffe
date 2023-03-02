@@ -23,6 +23,7 @@ import { UserContext } from "../../../Context/userContext";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Components/loading/Loading";
 import { useTranslation } from "react-i18next";
+import { useAppSelector } from "../../../store/store";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -32,15 +33,15 @@ const Login = () => {
     setError,
     formState: { errors },
   } = useForm();
-  const { isAutheticated } = useContext(UserContext);
+  const { isAuthenticated } = useAppSelector((state) => state.userReducer);
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    if (isAutheticated) {
+    if (isAuthenticated) {
       navigate("/");
     }
-  }, [isAutheticated]);
+  }, [isAuthenticated]);
 
   const handleSubmitForm = async (data: any) => {
     try {
