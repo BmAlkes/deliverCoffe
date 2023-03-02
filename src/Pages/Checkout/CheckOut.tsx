@@ -35,7 +35,7 @@ import { Cart } from "../../Components/cart/Cart";
 import { useDispatch } from "react-redux";
 import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
 
-export const CheckOut = () => {
+const CheckOut = () => {
   const [payment, setPayment] = useState("");
   const dispatch = useDispatch();
   const { products, deliver, productsTotalPrice } = useAppSelector(
@@ -189,3 +189,5 @@ export const CheckOut = () => {
     </CheckoutContainer>
   );
 };
+
+export default CheckOut;

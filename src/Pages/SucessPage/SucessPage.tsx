@@ -3,7 +3,7 @@ import { BorderContainer, Container } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
 
-export const SucesssPage = () => {
+const SucesssPage = () => {
   const { clientInformation, paymentMethod } = useAppSelector(
     (state) => state.cart
   );
@@ -51,3 +51,5 @@ export const SucesssPage = () => {
     </Container>
   );
 };
+
+export default SucesssPage;

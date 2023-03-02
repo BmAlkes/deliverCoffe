@@ -4,8 +4,7 @@ import { BannerHome } from "../../Components/banner/Banner";
 import { HomeContainer, SquareCoffee } from "./styles";
 import { useTranslation } from "react-i18next";
 import { CoffeeSection } from "../../Components/coffeesquare/CoffeeSquare";
-
-export const Home = () => {
+const Home = () => {
   const { t } = useTranslation();
   return (
     <HomeContainer>
@@ -17,3 +16,4 @@ export const Home = () => {
     </HomeContainer>
   );
 };
+export default Home;
