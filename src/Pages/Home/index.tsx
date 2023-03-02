@@ -1,4 +1,3 @@
-import React, { useState, useEffect, useContext } from "react";
 import { BannerHome } from "../../Components/Banner";
 
 import { HomeContainer, SquareCoffee } from "./styles";
