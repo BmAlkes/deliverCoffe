@@ -1,4 +1,3 @@
-import React from "react";
 import brasil from "../../assets/brazil-48.png";
 import usa from "../../assets/usa-48.png";
 import israel from "../../assets/israel-48.png";
