@@ -1,5 +1,5 @@
 import { SquareContainer } from "./styles";
-import CoffeeItem from "../coffeeitem/CoffeeItem";
+import CoffeeItem from "../CoffeeItem";
 import { useAppSelector } from "../../store/store";
 
 export const CoffeeSection = () => {
