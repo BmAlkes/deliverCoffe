@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Header } from "./Components/header/Header";
 import DefaultLayout from "./layout";
 import { Checkout } from "./Pages/Checkout";
 import { Home } from "./Pages/Home";
@@ -15,7 +14,6 @@ import { auth, db } from "./script/firebase.config";
 import { UserContext } from "./Context/userContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { userConverter } from "./converter/firestore.converter";
-import Loading from "./Components/loading/Loading";
 
 function App() {
   const { currentUser, isAutheticated, logoutUser, loginUser } =
