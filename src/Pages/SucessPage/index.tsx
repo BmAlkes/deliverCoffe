@@ -3,11 +3,13 @@ import { BorderContainer, Container } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
 import { BsFillPersonFill } from "react-icons/bs";
+import { selectProductTotalPriceWithDelive } from "../../store/cart/cart.selector";
 
 const SucesssPage = () => {
   const { clientInformation, paymentMethod } = useAppSelector(
     (state) => state.cart
   );
+  const totalPriceDeliver = useAppSelector(selectProductTotalPriceWithDelive);
   console.log(clientInformation);
 
   const { t } = useTranslation();
@@ -38,8 +40,12 @@ const SucesssPage = () => {
           </div>
           <div>
             <CiDollar className="DarkPurple" size={22} />
-            <p>{t("detail3")}</p>
-            <strong>{paymentMethod}</strong>
+            <p>
+              {t("detail3")}
+              <strong>{paymentMethod}</strong>
+            </p>
+            <br></br>
+            <p>Total charge: {totalPriceDeliver}</p>
           </div>
           <div>
             <BsFillPersonFill className="darkYellow" size={22} />
