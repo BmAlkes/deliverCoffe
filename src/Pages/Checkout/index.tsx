@@ -18,7 +18,6 @@ import { GiMoneyStack } from "react-icons/gi";
 
 import { CartContext } from "../../Context/cartContext";
 import Button from "../../Components/button/Button";
-import { Cart } from "../../Components/cart/Cart";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -32,6 +31,7 @@ import {
 import { useAppSelector } from "../../store/store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
+import { Cart } from "../../Components/cart/Cart";
 
 export const Checkout = () => {
   const { productsTotalPrice, deliver, dataClient, paymentMethod } =
