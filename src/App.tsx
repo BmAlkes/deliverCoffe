@@ -11,9 +11,9 @@ import { auth, db } from "./script/firebase.config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { userConverter } from "./converter/firestore.converter";
 import { loginUser, logoutUser } from "./store/user/user.actions";
-import Home from "./Pages/home";
+import Home from "./Pages/Home";
 import CheckOut from "./Pages/Checkout";
-import SucesssPage from "./Pages/sucessPage";
+import SucesssPage from "./Pages/SucessPage";
 
 function App() {
   const { i18n } = useTranslation();

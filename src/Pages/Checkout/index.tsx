@@ -16,7 +16,6 @@ import {
 } from "react-icons/bs";
 import { GiMoneyStack } from "react-icons/gi";
 
-import { CartContext } from "../../Context/cartContext";
 import { CustomButton } from "../../Components/Button";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +30,7 @@ import {
 import { useAppSelector } from "../../store/store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
-import { Cart } from "../../Components/cart/Cart";
+import { Cart } from "../../Components/Cart";
 import { useDispatch } from "react-redux";
 import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
 
