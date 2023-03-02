@@ -59,12 +59,9 @@ export const BorderContainer = styled.div`
     font-size: 16px;
     line-height: 130%;
     color: ${(props) => props.theme["base-text"]};
-    display: block;
-    margin-right: 1rem;
-
-    strong {
-      margin: 0 0.3rem;
-    }
+  }
+  strong {
+    margin: 0 0.5rem;
   }
   svg {
     width: 2rem;
@@ -83,5 +80,8 @@ export const BorderContainer = styled.div`
   }
   .purple {
     background-color: ${(props) => props.theme["purple"]};
+  }
+  .DarkPurple {
+    background-color: ${(props) => props.theme["purple-dark"]};
   }
 `;

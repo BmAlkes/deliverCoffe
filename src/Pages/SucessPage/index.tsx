@@ -2,11 +2,13 @@ import { CiDollar, CiLocationOn, CiTimer } from "react-icons/ci";
 import { BorderContainer, Container } from "./styles";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
+import { BsFillPersonFill } from "react-icons/bs";
 
 const SucesssPage = () => {
   const { clientInformation, paymentMethod } = useAppSelector(
     (state) => state.cart
   );
+  console.log(clientInformation);
 
   const { t } = useTranslation();
   return (
@@ -30,18 +32,21 @@ const SucesssPage = () => {
           <div>
             <CiTimer className="yellow" size={22} />
             <p>{t("detail2")}</p>
-
-            <strong>20min</strong>
+            <span>
+              <strong>20min</strong>
+            </span>
           </div>
           <div>
-            <CiDollar className="darkYellow" size={22} />
+            <CiDollar className="DarkPurple" size={22} />
             <p>{t("detail3")}</p>
-            <br />
+            <strong>{paymentMethod}</strong>
+          </div>
+          <div>
+            <BsFillPersonFill className="darkYellow" size={22} />
             <p>
-              <strong>{paymentMethod}</strong>
+              Client- <strong>{clientInformation?.name}</strong>
             </p>
           </div>
-          <div></div>
         </BorderContainer>
       </div>
       <img
