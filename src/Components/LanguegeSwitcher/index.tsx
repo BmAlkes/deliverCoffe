@@ -10,7 +10,7 @@ const languageOptions = [
   { name: "Hebrew", value: "he", flag: israel },
 ];
 
-export const LanguageSwitcher = () => {
+const LanguageSwitcher = () => {
   const { t, i18n } = useTranslation();
   return (
     <div>
@@ -28,3 +28,5 @@ export const LanguageSwitcher = () => {
     </div>
   );
 };
+
+export default LanguageSwitcher;
