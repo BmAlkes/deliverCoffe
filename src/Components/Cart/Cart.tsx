@@ -4,7 +4,7 @@ import { BiTrash } from "react-icons/bi";
 import { CartContext } from "../../Context/cartContext";
 import { AmountItem2 } from "../../Pages/checkout/styles";
 import { useAppSelector } from "../../store/store";
-import { CustomButton } from "../button/Button";
+import { CustomButton } from "../Button";
 import { CartConteinerCoffe } from "./styled";
 import {
   addProductToCart,

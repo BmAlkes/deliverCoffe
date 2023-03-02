@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
-import { CustomButton } from "../button/Button";
+import { CustomButton } from "../Button";
 import {
   AmountItem,
   CartContainer,

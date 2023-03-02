@@ -1,4 +1,4 @@
-import { CustomButton } from "../../../Components/button/Button";
+import { CustomButton } from "../../../Components/Button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   RegisterContainer,
