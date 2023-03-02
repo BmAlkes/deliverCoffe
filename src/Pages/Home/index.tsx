@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BannerHome } from "../../Components/banner/Banner";
+import { BannerHome } from "../../Components/Banner";
 
 import { HomeContainer, SquareCoffee } from "./styles";
 import { useTranslation } from "react-i18next";
