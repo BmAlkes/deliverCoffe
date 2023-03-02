@@ -11,7 +11,6 @@ interface InformationClientProps {
 }
 interface InitialState {
   products: Product[];
-  productsTotalPrice: number;
   deliver: number;
   paymentMethod: string;
   clientInformation?: InformationClientProps;
@@ -19,7 +18,6 @@ interface InitialState {
 
 const initialState: InitialState = {
   products: [],
-  productsTotalPrice: 0,
   deliver: 10,
   paymentMethod: "",
   clientInformation: {
@@ -92,15 +90,6 @@ const cartSlice = createSlice({
   },
 });
 
-// useEffect(() => {
-//   localStorage.setItem("cartProducts", JSON.stringify(products));
-// }, [products]);
-
-// const productsTotalPrice = useMemo(() => {
-//   return products.reduce((acc, currentProduct) => {
-//     return acc + currentProduct.price * currentProduct.quantity + deliver;
-//   }, 0);
-// }, [products]);
 export const {
   addProductToCart,
   removeProductFromCart,

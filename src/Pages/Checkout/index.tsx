@@ -20,26 +20,21 @@ import { CustomButton } from "../../Components/Button";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import {
-  addProductToCart,
-  clearCartProducts,
-  decreaseCartProductQuantity,
-  increaseCartProductQuantity,
-  removeProductFromCart,
-} from "../../store/cart/cart-slice";
 import { useAppSelector } from "../../store/store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
 import { Cart } from "../../Components/Cart";
 import { useDispatch } from "react-redux";
 import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
+import {
+  selectProductTotalPrice,
+  selectProductTotalPriceWithDelive,
+} from "../../store/cart/cart.selector";
 
 const CheckOut = () => {
   const [payment, setPayment] = useState("");
   const dispatch = useDispatch();
-  const { products, deliver, productsTotalPrice } = useAppSelector(
-    (state) => state.cart
-  );
+  const { products, deliver } = useAppSelector((state) => state.cart);
 
   const navigate = useNavigate();
   const {
@@ -54,8 +49,10 @@ const CheckOut = () => {
     dispatch(paymentMethod(payment));
     navigate("/sucess");
   }
+  const productsTotalPrice = useAppSelector(selectProductTotalPrice);
+  const totalPriceDeliver = useAppSelector(selectProductTotalPriceWithDelive);
 
-  console.log({ errors });
+  console.log(productsTotalPrice);
   return (
     <CheckoutContainer>
       <FormLeftSide>
@@ -173,7 +170,7 @@ const CheckOut = () => {
             </div>
             <div>
               <h3>{t("Total")}</h3>
-              <h3>${productsTotalPrice.toFixed(2)}</h3>
+              <h3>${totalPriceDeliver.toFixed(2)}</h3>
             </div>
           </ContainerValue>
         </div>
