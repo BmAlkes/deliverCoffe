@@ -3,7 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { CartContext } from "../../Context/cartContext";
-import Button from "../Button";
+import Button from "../button/Button";
 import {
   AmountItem,
   CartContainer,

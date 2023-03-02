@@ -17,8 +17,8 @@ import {
 import { GiMoneyStack } from "react-icons/gi";
 
 import { CartContext } from "../../Context/cartContext";
-import Button from "../../Components/Button";
-import { Cart } from "../../Components/Cart";
+import Button from "../../Components/button/Button";
+import { Cart } from "../../Components/cart/Cart";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
