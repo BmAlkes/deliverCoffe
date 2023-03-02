@@ -27,3 +27,5 @@ export const CustomButton = ({
     </CustomButtonContainer>
   );
 };
+
+export default CustomButton;
