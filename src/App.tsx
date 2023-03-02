@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layout";
-import { Checkout } from "./Pages/Checkout";
-import { Home } from "./Pages/Home";
-import { SucesssPage } from "./Pages/SucessPage";
+import { Checkout } from "./Pages/checkout/CheckOut";
+import { Home } from "./Pages/home/Home";
+import { SucesssPage } from "./Pages/sucessPage/SucessPage";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { useEffect } from "react";

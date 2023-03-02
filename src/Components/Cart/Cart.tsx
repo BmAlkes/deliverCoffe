@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { CartContext } from "../../Context/cartContext";
-import { AmountItem2 } from "../../Pages/Checkout/styles";
+import { AmountItem2 } from "../../Pages/checkout/styles";
 import { useAppSelector } from "../../store/store";
-import { CustomButton } from "../button/index";
+import { CustomButton } from "../button/Button";
 import { CartConteinerCoffe } from "./styled";
 import {
   addProductToCart,

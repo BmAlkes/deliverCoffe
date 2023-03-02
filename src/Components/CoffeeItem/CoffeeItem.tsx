@@ -1,9 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
-import { useSelector } from "react-redux";
-import { CartContext } from "../../Context/cartContext";
-import { CustomButton } from "../button/index";
+import { CustomButton } from "../button/Button";
 import {
   AmountItem,
   CartContainer,

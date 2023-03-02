@@ -3,12 +3,13 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   height: 60vh;
-
+  padding: 1.5rem;
+  margin: 1rem;
   @media (max-width: 768px) {
     flex-direction: column;
-    padding: 1rem 0;
+    height: 90vh;
   }
 
   h2 {
@@ -36,20 +37,20 @@ export const BorderContainer = styled.div`
   border-radius: 50em;
   border: 1px solid transparent;
   width: 526px;
-  height: 270px;
   border-radius: 6px 36px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   padding: 1.3rem;
+  @media (max-width: 768px) {
+    width: 340px;
+    padding: 0 1rem;
+  }
 
   div {
     display: flex;
     align-items: center;
-    margin: 1rem 0;
-    @media (max-width: 768px) {
-      margin: 0.4rem;
-    }
+    padding: 2rem 0;
   }
   p {
     font-family: "Roboto";

@@ -1,8 +1,6 @@
 import { BsCartFill } from "react-icons/bs";
 import { CiDollar, CiLocationOn, CiTimer } from "react-icons/ci";
 import { BorderContainer, Container } from "./styles";
-import { useContext } from "react";
-import { CartContext, useCartContext } from "../../Context/cartContext";
 import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
 
