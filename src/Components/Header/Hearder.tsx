@@ -1,6 +1,6 @@
 import { HeaderContainer, HeaderLeftSide } from "./styles";
 import { BsCartFill } from "react-icons/bs";
-import CustomButton from "../button/Button";
+import { CustomButton } from "../button/Button";
 import { useNavigate } from "react-router-dom";
 import { LanguageSwitcher } from "../languegeswitcher/Language";
 import { useAppSelector } from "../../store/store";
