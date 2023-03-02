@@ -3,7 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { CartContext } from "../../Context/cartContext";
-import Button from "../button";
+import { CustomButton } from "../button/index";
 import {
   AmountItem,
   CartContainer,
@@ -59,9 +59,9 @@ const CoffeeItem = ({ product }: any) => {
           <span>{quantity}</span>
           <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
         </AmountItem>
-        <Button color="secondary" onClick={handleAddProductToCart}>
+        <CustomButton color="secondary" onClick={handleAddProductToCart}>
           <BsCartFill size={22} />
-        </Button>
+        </CustomButton>
       </CartContainer>
     </Container>
   );

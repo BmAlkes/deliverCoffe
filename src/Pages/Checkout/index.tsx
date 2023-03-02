@@ -17,7 +17,7 @@ import {
 import { GiMoneyStack } from "react-icons/gi";
 
 import { CartContext } from "../../Context/cartContext";
-import Button from "../../Components/button";
+import { CustomButton } from "../../Components/button";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -177,13 +177,13 @@ export const Checkout = () => {
             </div>
           </ContainerValue>
         </div>
-        <Button
+        <CustomButton
           color="Three"
           type="submit"
           onClick={() => handleSubmit(handleCreateForm)()}
         >
           {t("Confirm Order")}
-        </Button>
+        </CustomButton>
       </CartRightSide>
     </CheckoutContainer>
   );

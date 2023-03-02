@@ -6,7 +6,7 @@ import { CartContext, useCartContext } from "../../Context/cartContext";
 import { useTranslation } from "react-i18next";
 
 export const SucesssPage = () => {
-  const { clientInformation, paymentMethodClient } = useCartContext();
+  const { clientInformation, paymentMethodClient } = useContext(CartContext);
 
   console.log(clientInformation, paymentMethodClient);
 

@@ -1,4 +1,4 @@
-import Button from "../../../Components/button";
+import { CustomButton } from "../../../Components/button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   RegisterContainer,
@@ -165,13 +165,13 @@ const Login = () => {
             <InputError>must be less than 16 characters</InputError>
           )}
         </LoginInputContainer>
-        <Button
+        <CustomButton
           color="secondary"
           onClick={() => handleSubmit(handleSubmitPress)()}
         >
           <ImEnter size={20} />
           Register Account
-        </Button>
+        </CustomButton>
       </div>
     </RegisterContainer>
   );

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsGoogle } from "react-icons/bs";
-import Button from "../../../Components/button";
+import { CustomButton } from "../../../Components/button";
 import CustomInput from "../../../Components/customInput/CustomInput";
 import {
   LoginContainer,
@@ -102,10 +102,10 @@ const Login = () => {
       />
       <div>
         <LoginHeadline>{t("enterAccount")}</LoginHeadline>
-        <Button color="secondary" onClick={() => handleSignInGoogle()}>
+        <CustomButton color="secondary" onClick={() => handleSignInGoogle()}>
           <BsGoogle size={20} />
           {t("google")}
-        </Button>
+        </CustomButton>
         <LoginSubtitle>{t("or")}</LoginSubtitle>
         <LoginInputContainer>
           <p>Email</p>
@@ -149,12 +149,12 @@ const Login = () => {
             <InputError>Password wrong</InputError>
           )}
         </LoginInputContainer>
-        <Button
+        <CustomButton
           color="secondary"
           onClick={() => handleSubmit(handleSubmitForm)()}
         >
           {t("buttonEnter")}
-        </Button>
+        </CustomButton>
       </div>
     </LoginContainer>
   );

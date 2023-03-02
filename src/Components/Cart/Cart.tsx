@@ -3,7 +3,7 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { CartContext } from "../../Context/cartContext";
 import { AmountItem2 } from "../../Pages/Checkout/styles";
-import Button from "../button";
+import { CustomButton } from "../button/index";
 import { CartConteinerCoffe } from "./styled";
 
 interface CartItemProps {
@@ -43,7 +43,7 @@ export const Cart: React.FC<CartItemProps> = ({ product }) => {
               <span>{product.quantity}</span>
               <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
             </AmountItem2>
-            <Button
+            <CustomButton
               color="secondary"
               onClick={() => {
                 removeProductFromCart(product.id);
@@ -51,7 +51,7 @@ export const Cart: React.FC<CartItemProps> = ({ product }) => {
             >
               <BiTrash />
               Remove
-            </Button>
+            </CustomButton>
           </div>
         </div>
       </div>

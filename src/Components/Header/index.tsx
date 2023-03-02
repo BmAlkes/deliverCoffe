@@ -1,6 +1,6 @@
 import { HeaderContainer, HeaderLeftSide } from "./styles";
 import { BsCartFill } from "react-icons/bs";
-import Button from "../button";
+import { CustomButton } from "../button";
 import { useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { LanguageSwitcher } from "../languegeswitcher";
@@ -33,24 +33,27 @@ export const Header = () => {
       <HeaderLeftSide>
         {!isAutheticated && (
           <>
-            <Button onClick={() => navigate("/login")} color="secondary">
+            <CustomButton onClick={() => navigate("/login")} color="secondary">
               Login
-            </Button>
-            <Button onClick={() => navigate("/register")} color="secondary">
+            </CustomButton>
+            <CustomButton
+              onClick={() => navigate("/register")}
+              color="secondary"
+            >
               Register
-            </Button>
+            </CustomButton>
           </>
         )}
 
         {isAutheticated ? <p>{currentUser?.city}</p> : <p>Israel</p>}
-        <Button onClick={handleCheckout}>
+        <CustomButton onClick={handleCheckout}>
           <BsCartFill size={22} />
           <span>{cart.length}</span>
-        </Button>
+        </CustomButton>
         {isAutheticated && (
-          <Button onClick={() => signOut(auth)}>
+          <CustomButton onClick={() => signOut(auth)}>
             <GoSignOut size={20} />
-          </Button>
+          </CustomButton>
         )}
       </HeaderLeftSide>
     </HeaderContainer>
