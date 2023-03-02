@@ -1,8 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layout";
-import { Checkout } from "./Pages/checkout/CheckOut";
-import { Home } from "./Pages/home/Home";
-import { SucesssPage } from "./Pages/sucessPage/SucessPage";
 import { useTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "./store/store";
 import { useEffect } from "react";
@@ -14,6 +11,9 @@ import { auth, db } from "./script/firebase.config";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { userConverter } from "./converter/firestore.converter";
 import { loginUser, logoutUser } from "./store/user/user.actions";
+import { Home } from "./Pages/home/Home";
+import { CheckOut } from "./Pages/checkout/CheckOut";
+import { SucesssPage } from "./Pages/sucessPage/SucessPage";
 
 function App() {
   const { i18n } = useTranslation();
@@ -55,7 +55,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DefaultLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/checkout" element={<Checkout />} />
+            <Route path="/checkout" element={<CheckOut />} />
             <Route path="/sucess" element={<SucesssPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

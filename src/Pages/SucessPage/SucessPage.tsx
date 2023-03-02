@@ -1,4 +1,3 @@
-import { BsCartFill } from "react-icons/bs";
 import { CiDollar, CiLocationOn, CiTimer } from "react-icons/ci";
 import { BorderContainer, Container } from "./styles";
 import { useTranslation } from "react-i18next";
