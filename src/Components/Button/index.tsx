@@ -9,7 +9,7 @@ export type ButtonProps = {
   type?: "submit";
 };
 
-const Button = ({
+const CustomButton = ({
   onClick,
   children,
   color = "primary",
@@ -28,4 +28,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default CustomButton;
