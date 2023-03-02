@@ -4,11 +4,12 @@ import { BorderContainer, Container } from "./styles";
 import { useContext } from "react";
 import { CartContext, useCartContext } from "../../Context/cartContext";
 import { useTranslation } from "react-i18next";
+import { useAppSelector } from "../../store/store";
 
 export const SucesssPage = () => {
-  const { clientInformation, paymentMethodClient } = useContext(CartContext);
-
-  console.log(clientInformation, paymentMethodClient);
+  const { clientInformation, paymentMethod } = useAppSelector(
+    (state) => state.cart
+  );
 
   const { t } = useTranslation();
   return (
@@ -40,7 +41,7 @@ export const SucesssPage = () => {
             <p>{t("detail3")}</p>
             <br />
             <p>
-              <strong>{paymentMethodClient}</strong>
+              <strong>{paymentMethod}</strong>
             </p>
           </div>
           <div></div>

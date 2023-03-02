@@ -15,7 +15,6 @@ interface InitialState {
   deliver: number;
   paymentMethod: string;
   clientInformation?: InformationClientProps;
-  quantity: number;
 }
 
 const initialState: InitialState = {
@@ -31,7 +30,6 @@ const initialState: InitialState = {
     phone: 0,
     street: "",
   },
-  quantity: 0,
 };
 
 const cartSlice = createSlice({

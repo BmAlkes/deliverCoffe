@@ -3,8 +3,19 @@ import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { CartContext } from "../../Context/cartContext";
 import { AmountItem2 } from "../../Pages/Checkout/styles";
+import { useAppSelector } from "../../store/store";
 import { CustomButton } from "../button/index";
 import { CartConteinerCoffe } from "./styled";
+import {
+  addProductToCart,
+  decreaseCartProductQuantity,
+  increaseCartProductQuantity,
+  removeProductFromCart,
+  clearCartProducts,
+  clientInformation,
+  paymentMethod,
+} from "../../store/cart/cart-slice";
+import { useDispatch } from "react-redux";
 
 interface CartItemProps {
   product: {
@@ -17,18 +28,17 @@ interface CartItemProps {
 }
 
 export const Cart: React.FC<CartItemProps> = ({ product }) => {
-  const {
-    decreaseProductQuantity,
-    increaseProductQuantity,
-    removeProductFromCart,
-  } = useContext(CartContext);
+  const dispatch = useDispatch();
 
   const handleIncreaseQuantity = () => {
-    increaseProductQuantity(product.id);
+    dispatch(increaseCartProductQuantity(product.id));
   };
 
   const handleDecreaseQuantity = () => {
-    decreaseProductQuantity(product.id);
+    dispatch(decreaseCartProductQuantity(product.id));
+  };
+  const handleRemoveFromCart = () => {
+    dispatch(removeProductFromCart(product.id));
   };
 
   return (
@@ -45,9 +55,7 @@ export const Cart: React.FC<CartItemProps> = ({ product }) => {
             </AmountItem2>
             <CustomButton
               color="secondary"
-              onClick={() => {
-                removeProductFromCart(product.id);
-              }}
+              onClick={() => handleRemoveFromCart()}
             >
               <BiTrash />
               Remove

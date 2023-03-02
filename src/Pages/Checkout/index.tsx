@@ -33,20 +33,16 @@ import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
 import { Cart } from "../../Components/cart/Cart";
 import { useDispatch } from "react-redux";
+import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
 
 export const Checkout = () => {
+  const [payment, setPayment] = useState("");
   const dispatch = useDispatch();
-  const {
-    products,
-    deliver,
-    paymentMethod,
-    productsTotalPrice,
-    quantity,
-    clientInformation,
-  } = useAppSelector((state) => state.cart);
+  const { products, deliver, productsTotalPrice } = useAppSelector(
+    (state) => state.cart
+  );
 
   const navigate = useNavigate();
-  const [payment, setPayment] = useState("");
   const {
     register,
     handleSubmit,
@@ -55,7 +51,8 @@ export const Checkout = () => {
   const { t } = useTranslation();
 
   function handleCreateForm(data: any) {
-    console.log(data);
+    dispatch(clientInformation(data));
+    dispatch(paymentMethod(payment));
     navigate("/sucess");
   }
 
