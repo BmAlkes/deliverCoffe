@@ -32,9 +32,18 @@ import { useAppSelector } from "../../store/store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
 import { Cart } from "../../Components/cart/Cart";
+import { useDispatch } from "react-redux";
 
 export const Checkout = () => {
-  const { products } = useAppSelector((state) => state.cart);
+  const dispatch = useDispatch();
+  const {
+    products,
+    deliver,
+    paymentMethod,
+    productsTotalPrice,
+    quantity,
+    clientInformation,
+  } = useAppSelector((state) => state.cart);
 
   const navigate = useNavigate();
   const [payment, setPayment] = useState("");
@@ -47,11 +56,9 @@ export const Checkout = () => {
 
   function handleCreateForm(data: any) {
     console.log(data);
-
-    dataClient(data);
     navigate("/sucess");
   }
-  paymentMethod(payment);
+
   console.log({ errors });
   return (
     <CheckoutContainer>

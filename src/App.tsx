@@ -11,10 +11,9 @@ import Login from "./Pages/Auth/login/Login";
 import Register from "./Pages/Auth/register/Register";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./script/firebase.config";
-import { UserContext } from "./Context/userContext";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import { userConverter } from "./converter/firestore.converter";
-import { useSelector } from "react-redux";
+import { loginUser, logoutUser } from "./store/user/user.actions";
 
 function App() {
   const { i18n } = useTranslation();
@@ -29,7 +28,7 @@ function App() {
     onAuthStateChanged(auth, async (user) => {
       const isSigninOut = isAutheticated && !user;
       if (isSigninOut) {
-        dispatch({ type: "LOGOUT_USER" });
+        dispatch(logoutUser());
       }
 
       const isSignIn = !isAutheticated && user;
@@ -41,7 +40,7 @@ function App() {
           )
         );
         const userFromFireStore = querySnapshot.docs[0]?.data();
-        dispatch({ type: "LOGIN_USER", payload: userFromFireStore });
+        dispatch(loginUser(userFromFireStore));
       }
     });
   }, [dispatch]);

@@ -8,6 +8,7 @@ import { GoSignOut } from "react-icons/go";
 import { signOut } from "firebase/auth";
 import { auth } from "../../script/firebase.config";
 import { useDispatch } from "react-redux";
+import { logoutUser } from "../../store/user/user.actions";
 
 export const Header = () => {
   const dispatch = useDispatch();
@@ -20,7 +21,7 @@ export const Header = () => {
   };
 
   const handleSignOutClick = () => {
-    dispatch({ type: "LOGOUT_USER" });
+    dispatch(logoutUser());
     signOut(auth);
   };
   const cart = useAppSelector((state) => state.cart.products);
