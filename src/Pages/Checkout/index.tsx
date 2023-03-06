@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useState } from "react";
 import {
   ButtonContainer,
   CartRightSide,
@@ -23,7 +23,7 @@ import { useTranslation } from "react-i18next";
 import { useAppSelector } from "../../store/store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
-import { Cart } from "../../Components/Cart";
+import { Cart } from "../../Components/Cart/Cart";
 import { useDispatch } from "react-redux";
 import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
 import {

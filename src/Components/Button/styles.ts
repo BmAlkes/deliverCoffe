@@ -1,5 +1,11 @@
 import styled, { css } from "styled-components";
-import { ButtonProps } from "./index";
+type ButtonProps = {
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  children?: React.ReactNode; // make the component able to receive children elements
+  color?: "primary" | "secondary" | "Three";
+  dataCount?: number;
+  type?: "submit";
+};
 
 const COLOR = {
   primary: css`

@@ -1,19 +1,13 @@
-import React, { useContext } from "react";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
-import { CartContext } from "../../Context/cartContext";
 import { AmountItem2 } from "../../Pages/Checkout/styles";
 import { useAppSelector } from "../../store/store";
 import { CustomButton } from "../Button";
 import { CartConteinerCoffe } from "./styled";
 import {
-  addProductToCart,
   decreaseCartProductQuantity,
   increaseCartProductQuantity,
   removeProductFromCart,
-  clearCartProducts,
-  clientInformation,
-  paymentMethod,
 } from "../../store/cart/cart-slice";
 import { useDispatch } from "react-redux";
 
@@ -53,10 +47,7 @@ export const Cart: React.FC<CartItemProps> = ({ product }) => {
               <span>{product.quantity}</span>
               <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
             </AmountItem2>
-            <CustomButton
-              color="secondary"
-              onClick={() => handleRemoveFromCart()}
-            >
+            <CustomButton color="secondary" onClick={handleRemoveFromCart}>
               <BiTrash />
               Remove
             </CustomButton>

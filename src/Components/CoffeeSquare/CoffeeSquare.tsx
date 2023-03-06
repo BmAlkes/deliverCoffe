@@ -1,13 +1,14 @@
 import { SquareContainer } from "./styles";
-import CoffeeItem from "../CoffeeItem";
+import CoffeeItem from "../CoffeeItem/CoffeeItem";
 import { useAppSelector } from "../../store/store";
+import { Product } from "../../@types/product";
 
 export const CoffeeSection = () => {
   const listProduct = useAppSelector((state) => state.product.listProducts);
 
   return (
     <SquareContainer>
-      {listProduct.map((product: any) => {
+      {listProduct.map((product: Product) => {
         return <CoffeeItem product={product} key={product.id} />;
       })}
     </SquareContainer>

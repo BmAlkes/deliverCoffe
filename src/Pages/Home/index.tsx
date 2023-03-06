@@ -1,9 +1,9 @@
-import { BannerHome } from "../../Components/Banner";
+import { BannerHome } from "../../Components/Banner/Banner";
 
 import { HomeContainer, SquareCoffee } from "./styles";
 import { useTranslation } from "react-i18next";
-import { CoffeeSection } from "../../Components/CoffeeSquare";
-import Welcome from "../../Components/WelcomeBanner";
+import { CoffeeSection } from "../../Components/CoffeeSquare/CoffeeSquare";
+import Welcome from "../../Components/WelcomeBanner/WelcomeBanner";
 import { useAppSelector } from "../../store/store";
 const Home = () => {
   const { t } = useTranslation();
