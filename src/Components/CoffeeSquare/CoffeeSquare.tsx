@@ -8,8 +8,8 @@ export const CoffeeSection = () => {
 
   return (
     <SquareContainer>
-      {listProduct.map((product: Product) => {
-        return <CoffeeItem product={product} key={product.id} />;
+      {Object.entries(listProduct).map(([id, product]) => {
+        return <CoffeeItem productId={id} key={id} />;
       })}
     </SquareContainer>
   );

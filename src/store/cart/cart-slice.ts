@@ -9,8 +9,13 @@ interface InformationClientProps {
   city: string;
   phone: number;
 }
+
+type CartProduct = {
+  productId: Product["productId"];
+  quantity: number;
+};
 interface InitialState {
-  products: Product[];
+  products: CartProduct[];
   deliver: number;
   paymentMethod: string;
   clientInformation?: InformationClientProps;
@@ -37,15 +42,14 @@ const cartSlice = createSlice({
     addProductToCart: (state, action: PayloadAction<Product>) => {
       const product = action.payload;
 
+      console.log(product);
       // verificar se o produto já está no carrinho
-      const productIsAlreadyInCart = state.products.some(
-        (item) => item.id === product.id
-      );
+      const productIsAlreadyInCart = state.products.some((id) => id === id);
 
       // se sim -> aumentar sua quantidade
       if (productIsAlreadyInCart) {
         state.products = state.products.map((item) =>
-          item.id === product.id
+          item.productId === product.productId
             ? { ...item, quantity: item.quantity + 1 }
             : item
         );
@@ -59,12 +63,12 @@ const cartSlice = createSlice({
     },
     removeProductFromCart: (state, action: PayloadAction<string>) => {
       state.products = state.products.filter(
-        (product) => product.id !== action.payload
+        (product) => product.productId !== action.payload
       );
     },
     increaseCartProductQuantity: (state, action: PayloadAction<string>) => {
       state.products = state.products.map((product) =>
-        product.id === action.payload
+        product.productId === action.payload
           ? { ...product, quantity: product.quantity + 1 }
           : product
       );
@@ -72,7 +76,7 @@ const cartSlice = createSlice({
     decreaseCartProductQuantity: (state, action: PayloadAction<string>) => {
       state.products = state.products
         .map((product) =>
-          product.id === action.payload
+          product.productId === action.payload
             ? { ...product, quantity: product.quantity - 1 }
             : product
         )

@@ -12,8 +12,13 @@ import {
   Price,
   SpanLoop,
 } from "./styled";
+import { useAppSelector } from "../../store/store";
 
-const CoffeeItem = ({ product }: any) => {
+const CoffeeItem = ({ productId }: any) => {
+  const product = useAppSelector(
+    (state) => state.product.listProducts[productId]
+  );
+  console.log(product);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState<number>(product.quantity);
 
@@ -31,7 +36,7 @@ const CoffeeItem = ({ product }: any) => {
   };
 
   return (
-    <Container data-productid={product.id}>
+    <Container>
       <img src={product.imageUrl} alt="" />
       <div>
         {product.type.map((item: any) => {

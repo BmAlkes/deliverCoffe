@@ -2,12 +2,14 @@ import { createSlice, PayloadAction, createAsyncThunk } from "@reduxjs/toolkit";
 import { Product } from "../../@types/product";
 import { fetchProducts as fetchProductsApi } from "../api";
 
+type ListProducts = Record<Product["id"], Product>;
 interface InitialState {
-  listProducts: Product[];
+  listProducts: ListProducts;
   status: string;
 }
+
 const initialState: InitialState = {
-  listProducts: [],
+  listProducts: {},
   status: "",
 };
 
@@ -15,7 +17,10 @@ export const fetchProducts = createAsyncThunk(
   "listProducts/fetchProduct",
   async () => {
     const response = await fetchProductsApi();
-    return response;
+    return response.reduce((acc, product) => {
+      acc[product.id] = product;
+      return acc;
+    }, {} as ListProducts);
   }
 );
 
