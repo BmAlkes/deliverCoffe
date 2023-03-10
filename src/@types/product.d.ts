@@ -1,9 +1,13 @@
 export interface Product {
-  productId: string;
+  id: string;
   imageUrl: string;
   name: string;
   price: number;
-  quantity: number;
   type: [];
   phrase: string;
 }
+
+export type CartProduct = {
+  productId: Product["id"];
+  quantity: number;
+};

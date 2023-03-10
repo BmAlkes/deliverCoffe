@@ -2,7 +2,11 @@ import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BsCartFill } from "react-icons/bs";
-import { addProductToCart } from "../../store/cart/cart-slice";
+import {
+  // addProductToCart,
+  decreaseCartProductQuantity,
+  increaseCartProductQuantity,
+} from "../../store/cart/cart-slice";
 import { CustomButton } from "../Button";
 import {
   AmountItem,
@@ -13,51 +17,61 @@ import {
   SpanLoop,
 } from "./styled";
 import { useAppSelector } from "../../store/store";
+import { CartProduct } from "../../@types/product";
+
+export const notFound: CartProduct = {
+  productId: "",
+  quantity: 0,
+};
 
 const CoffeeItem = ({ productId }: any) => {
-  const product = useAppSelector(
+  const { imageUrl, name, phrase, price, type } = useAppSelector(
     (state) => state.product.listProducts[productId]
   );
-  console.log(product);
-  const dispatch = useDispatch();
-  const [quantity, setQuantity] = useState<number>(product.quantity);
+  const { quantity } = useAppSelector(
+    (state) =>
+      state.cart.products.find(({ productId: id }) => id === productId) ||
+      notFound
+  );
 
-  const newProduct = { ...product, quantity: quantity };
-  const handleAddProductToCart = () => {
-    dispatch(addProductToCart(newProduct));
-  };
+  const dispatch = useDispatch();
+
+  // const handleAddProductToCart = () => {
+  //   dispatch(addProductToCart(productId));
+  // };
 
   const handleIncreaseQuantity = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    dispatch(increaseCartProductQuantity(productId));
   };
 
   const handleDecreaseQuantity = () => {
-    setQuantity((prevQuantity) => (prevQuantity === 0 ? 0 : prevQuantity - 1));
+    dispatch(decreaseCartProductQuantity(productId));
   };
 
   return (
     <Container>
-      <img src={product.imageUrl} alt="" />
+      <img src={imageUrl} alt="" />
       <div>
-        {product.type.map((item: any) => {
+        {type.map((item: any) => {
           return <SpanLoop key={item}> {item}</SpanLoop>;
         })}
       </div>
-      <h3>{product.name}</h3>
-      <Pharse>{product.phrase}</Pharse>
+      <h3>{name}</h3>
+      <Pharse>{phrase}</Pharse>
       <CartContainer>
         <Price>
           <span>$</span>
-          {product.price}
+          {price}
         </Price>
         <AmountItem>
+          {/* add button and disabled quantity === 0  */}
           <AiOutlineMinus size={30} onClick={handleDecreaseQuantity} />
           <span>{quantity}</span>
           <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
         </AmountItem>
-        <CustomButton color="secondary" onClick={handleAddProductToCart}>
+        {/* <CustomButton color="secondary" onClick={handleAddProductToCart}>
           <BsCartFill size={22} />
-        </CustomButton>
+        </CustomButton> */}
       </CartContainer>
     </Container>
   );

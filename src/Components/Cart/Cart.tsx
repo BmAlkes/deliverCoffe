@@ -10,41 +10,43 @@ import {
   removeProductFromCart,
 } from "../../store/cart/cart-slice";
 import { useDispatch } from "react-redux";
+import { CartProduct } from "../../@types/product";
+import { notFound } from "../CoffeeItem/CoffeeItem";
 
-interface CartItemProps {
-  product: {
-    imageUrl: string;
-    name: string;
-    quantity: number;
-    price: number;
-    id: string;
-  };
-}
+export const Cart: React.FC<CartProduct> = ({ productId }) => {
+  console.log(productId);
+  const { imageUrl, name, price } = useAppSelector(
+    (state) => state.product.listProducts[productId]
+  );
+  const { quantity } = useAppSelector(
+    (state) =>
+      state.cart.products.find(({ productId: id }) => id === productId) ||
+      notFound
+  );
 
-export const Cart: React.FC<CartItemProps> = ({ product }) => {
   const dispatch = useDispatch();
 
   const handleIncreaseQuantity = () => {
-    dispatch(increaseCartProductQuantity(product.id));
+    dispatch(increaseCartProductQuantity(productId));
   };
 
   const handleDecreaseQuantity = () => {
-    dispatch(decreaseCartProductQuantity(product.id));
+    dispatch(decreaseCartProductQuantity(productId));
   };
   const handleRemoveFromCart = () => {
-    dispatch(removeProductFromCart(product.id));
+    dispatch(removeProductFromCart(productId));
   };
 
   return (
     <CartConteinerCoffe>
       <div>
-        <img src={product.imageUrl} alt="" />
+        <img src={imageUrl} alt="" />
         <div className="column">
-          <p>{product.name}</p>
+          <p>{name}</p>
           <div className="column2">
             <AmountItem2>
               <AiOutlineMinus size={30} onClick={handleDecreaseQuantity} />
-              <span>{product.quantity}</span>
+              <span>{quantity}</span>
               <AiOutlinePlus size={30} onClick={handleIncreaseQuantity} />
             </AmountItem2>
             <CustomButton color="secondary" onClick={handleRemoveFromCart}>
@@ -54,7 +56,7 @@ export const Cart: React.FC<CartItemProps> = ({ product }) => {
           </div>
         </div>
       </div>
-      <p>${product.price}</p>
+      <p>${price}</p>
     </CartConteinerCoffe>
   );
 };

@@ -35,6 +35,7 @@ const CheckOut = () => {
   const [payment, setPayment] = useState("");
   const dispatch = useDispatch();
   const { products, deliver } = useAppSelector((state) => state.cart);
+  console.log(products);
 
   const navigate = useNavigate();
   const {
@@ -52,7 +53,6 @@ const CheckOut = () => {
   const productsTotalPrice = useAppSelector(selectProductTotalPrice);
   const totalPriceDeliver = useAppSelector(selectProductTotalPriceWithDelive);
 
-  console.log(productsTotalPrice);
   return (
     <CheckoutContainer>
       <FormLeftSide>
@@ -156,8 +156,8 @@ const CheckOut = () => {
         <h3>{t("TitleCart")}</h3>
 
         <div>
-          {products.map((product) => {
-            return <Cart product={product} key={product.id} />;
+          {products.map((productId) => {
+            return <Cart {...productId} />;
           })}
           <ContainerValue>
             <div>

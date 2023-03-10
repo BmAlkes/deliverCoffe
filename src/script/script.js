@@ -23,7 +23,6 @@ const products = [
     phrase: "Traditional coffee made with hot water and ground beans",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_Americano_eafvpc.png",
-    quantity: 0,
   },
   {
     id: "6228fc8bb7e6cb904bbe014e1",
@@ -33,7 +32,6 @@ const products = [
     phrase: "Traditional coffee made with hot water and ground beans",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Expresso_gldy5r.png",
-    quantity: 0,
   },
   {
     id: "6228fce4b7e6cb904bbe0154",
@@ -43,7 +41,6 @@ const products = [
     phrase: "Tradicional expresso with cream",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Expresso_Cremoso_p7qfry.png",
-    quantity: 0,
   },
   {
     id: "6228fd19b7e6cb904bbe0157",
@@ -53,7 +50,6 @@ const products = [
     phrase: "Drink prepared with espresso coffee and ice cubes",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_Caf%C3%A9_Gelado_m3cmqi.png",
-    quantity: 0,
   },
   {
     id: "6228fd3bb7e6cb904bbe015a",
@@ -63,7 +59,6 @@ const products = [
     phrase: "Half expresso with hot milk",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_Caf%C3%A9_com_Leite_h0lkks.png",
-    quantity: 0,
   },
   {
     id: "6228fda4b7e6cb904bbe015f",
@@ -73,7 +68,6 @@ const products = [
     phrase: "one espresso with hot milk and cream,",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384595/BInvent%20App/Type_Latte_vgareq.png",
-    quantity: 0,
   },
   {
     id: "6228fca3b7e6cb904bbe0150",
@@ -83,7 +77,6 @@ const products = [
     phrase: "half coffee, half hot milk with cream and cinnamon ",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Capuccino_t58hqe.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c",
@@ -93,7 +86,6 @@ const products = [
     phrase: "half coffee, half hot milk with cream and cinnamon ",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Capuccino_t58hqe.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c2",
@@ -103,7 +95,6 @@ const products = [
     phrase: "espresso coffee with chocolate sauce, a little milk and foam",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384596/BInvent%20App/Type_Mochaccino_w59dti.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c3",
@@ -113,7 +104,6 @@ const products = [
     phrase: "Hot Chocolate with milk",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Chocolate_Quente_qhpw3k.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c4",
@@ -123,7 +113,6 @@ const products = [
     phrase: "iced espresso drink with rum, cream, hazelnut and mint",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384594/BInvent%20App/Type_Cubano_d6r3gn.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c5",
@@ -133,7 +122,6 @@ const products = [
     phrase: "sweetened drink prepared with coffee and coconut milk",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384595/BInvent%20App/Type_Havaiano_trtgzs.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c6",
@@ -143,7 +131,6 @@ const products = [
     phrase: "drink prepared with Arabic coffee beans and spices",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_%C3%81rabe_gde9v9.png",
-    quantity: 0,
   },
   {
     id: "6228fd63b7e6cb904bbe015c7",
@@ -153,7 +140,6 @@ const products = [
     phrase: "Drink based on coffee, Irish whiskey, sugar and whipped cream",
     imageUrl:
       "https://res.cloudinary.com/binvent/image/upload/v1676384593/BInvent%20App/Type_%C3%81rabe_gde9v9.png",
-    quantity: 0,
   },
 ];
 

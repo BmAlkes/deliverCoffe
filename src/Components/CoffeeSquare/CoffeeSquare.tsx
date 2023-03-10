@@ -8,7 +8,7 @@ export const CoffeeSection = () => {
 
   return (
     <SquareContainer>
-      {Object.entries(listProduct).map(([id, product]) => {
+      {Object.keys(listProduct).map((id) => {
         return <CoffeeItem productId={id} key={id} />;
       })}
     </SquareContainer>
