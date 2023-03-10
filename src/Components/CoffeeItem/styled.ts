@@ -46,9 +46,9 @@ export const SpanLoop = styled.span`
 
 export const CartContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.2rem;
   padding: 1rem;
 `;
 
