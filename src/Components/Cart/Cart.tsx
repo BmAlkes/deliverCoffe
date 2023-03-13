@@ -1,7 +1,7 @@
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 import { BiTrash } from "react-icons/bi";
 import { AmountItem2 } from "../../Pages/Checkout/styles";
-import { useAppSelector } from "../../store/store";
+import { useAppSelector } from "../../store";
 import { CustomButton } from "../Button";
 import { CartConteinerCoffe } from "./styled";
 import {

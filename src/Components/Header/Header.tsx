@@ -3,7 +3,7 @@ import { BsCartFill } from "react-icons/bs";
 import { CustomButton } from "../Button";
 import { useNavigate } from "react-router-dom";
 import LanguageSwitcher from "../LanguegeSwitcher/index";
-import { useAppSelector } from "../../store/store";
+import { useAppSelector } from "../../store";
 import { GoSignOut } from "react-icons/go";
 import { signOut } from "firebase/auth";
 import { auth } from "../../script/firebase.config";

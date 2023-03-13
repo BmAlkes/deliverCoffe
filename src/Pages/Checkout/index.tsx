@@ -20,7 +20,7 @@ import { CustomButton } from "../../Components/Button";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { useAppSelector } from "../../store/store";
+import { useAppSelector } from "../../store";
 import CustomInput from "../../Components/customInput/CustomInput";
 import InputError from "../../Components/input-error-msg/InputErrorMsg";
 import { Cart } from "../../Components/Cart/Cart";
@@ -29,7 +29,7 @@ import { clientInformation, paymentMethod } from "../../store/cart/cart-slice";
 import {
   selectProductTotalPrice,
   selectProductTotalPriceWithDelive,
-} from "../../store/cart/cart.selector";
+} from "../../store/cart/cart-selector";
 
 const CheckOut = () => {
   const [payment, setPayment] = useState("");

@@ -20,7 +20,7 @@ import { useEffect, useState } from "react";
 import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Components/loading/Loading";
-import { useAppSelector } from "../../../store/store";
+import { useAppSelector } from "../../../store";
 
 const Login = () => {
   const [isLoading, setLoading] = useState(false);

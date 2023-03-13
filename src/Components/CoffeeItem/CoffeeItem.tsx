@@ -1,7 +1,7 @@
-import React, { useContext, useState } from "react";
 import { useDispatch } from "react-redux";
+import { RootState, useAppSelector } from "../../store";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { BsCartFill } from "react-icons/bs";
+import { CartProduct, Product } from "../../@types/product";
 import {
   // addProductToCart,
   decreaseCartProductQuantity,
@@ -16,23 +16,26 @@ import {
   Price,
   SpanLoop,
 } from "./styled";
-import { useAppSelector } from "../../store/store";
-import { CartProduct } from "../../@types/product";
 
 export const notFound: CartProduct = {
   productId: "",
   quantity: 0,
 };
 
+const selectedProductById = (productId: Product["id"]) => (state: RootState) =>
+  state.product.listProducts[productId];
+
+const selectCartByProductId =
+  (productId: Product["id"]) => (state: RootState) =>
+    state.cart.products.find(({ productId: id }) => id === productId) ||
+    notFound;
+
 const CoffeeItem = ({ productId }: any) => {
   const { imageUrl, name, phrase, price, type } = useAppSelector(
-    (state) => state.product.listProducts[productId]
+    selectedProductById(productId)
   );
-  const { quantity } = useAppSelector(
-    (state) =>
-      state.cart.products.find(({ productId: id }) => id === productId) ||
-      notFound
-  );
+
+  const { quantity } = useAppSelector(selectCartByProductId(productId));
 
   const dispatch = useDispatch();
 

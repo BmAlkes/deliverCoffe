@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layout";
 import { useTranslation } from "react-i18next";
-import { useAppDispatch, useAppSelector } from "./store/store";
+import { useAppDispatch, useAppSelector } from "./store";
 import { useEffect } from "react";
 import { fetchProducts } from "./store/products/product-slices";
 import Login from "./Pages/Auth/login/Login";

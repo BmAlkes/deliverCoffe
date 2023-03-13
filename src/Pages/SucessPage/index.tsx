@@ -1,9 +1,9 @@
 import { CiDollar, CiLocationOn, CiTimer } from "react-icons/ci";
 import { BorderContainer, Container } from "./styles";
 import { useTranslation } from "react-i18next";
-import { useAppSelector } from "../../store/store";
+import { useAppSelector } from "../../store";
 import { BsFillPersonFill } from "react-icons/bs";
-import { selectProductTotalPriceWithDelive } from "../../store/cart/cart.selector";
+import { selectProductTotalPriceWithDelive } from "../../store/cart/cart-selector";
 
 const SucesssPage = () => {
   const { clientInformation, paymentMethod } = useAppSelector(

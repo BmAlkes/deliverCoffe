@@ -1,4 +1,4 @@
-import { RootState } from "../store";
+import { RootState } from "..";
 
 export const selectProductTotalPrice = (state: RootState) => {
   return state.cart.products.reduce((acc, currentProduct) => {

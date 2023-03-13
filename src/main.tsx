@@ -5,7 +5,7 @@ import App from "./App";
 import { GlobalStyle } from "./styles/global";
 import { defaultTheme } from "./styles/themes/default";
 import "./i18n/index";
-import { store } from "./store/store";
+import { store } from "./store";
 import { Provider } from "react-redux";
 import CartContextProvide from "./Context/cartContext";
 

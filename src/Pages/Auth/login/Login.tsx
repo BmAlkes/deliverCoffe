@@ -23,7 +23,7 @@ import { UserContext } from "../../../Context/userContext";
 import { useNavigate } from "react-router-dom";
 import Loading from "../../../Components/loading/Loading";
 import { useTranslation } from "react-i18next";
-import { useAppSelector } from "../../../store/store";
+import { useAppSelector } from "../../../store";
 
 const Login = () => {
   const { t } = useTranslation();
