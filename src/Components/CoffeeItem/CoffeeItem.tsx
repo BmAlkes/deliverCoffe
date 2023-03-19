@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import { RootState, useAppSelector } from "../../store";
+import { RootState, useAppSelector } from "src/store";
 import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
-import { CartProduct, Product } from "../../@types/product";
+import { CartProduct, Product } from "src/@types/product";
 import {
   // addProductToCart,
   decreaseCartProductQuantity,
