@@ -67,26 +67,17 @@ const CoffeeItem = ({ productId }: any) => {
           {price}
         </Price>
         <AmountItem>
-          {/* add button and disabled quantity === 0  */}
-          {quantity <= 0 ? (
-            ""
-          ) : (
-            <CustomButton color="secondary">
-              <AiOutlineMinus
-                size={30}
-                onClick={handleDecreaseQuantity}
-                color="white"
-              />
-            </CustomButton>
-          )}
+          <CustomButton
+            color="secondary"
+            disabled={quantity === 0}
+            onClick={handleDecreaseQuantity}
+          >
+            <AiOutlineMinus size={30} color="white" />
+          </CustomButton>
 
           <span>{quantity}</span>
-          <CustomButton color="secondary">
-            <AiOutlinePlus
-              size={30}
-              onClick={handleIncreaseQuantity}
-              color="white"
-            />
+          <CustomButton color="secondary" onClick={handleIncreaseQuantity}>
+            <AiOutlinePlus size={30} color="white" />
           </CustomButton>
         </AmountItem>
         {/* <CustomButton color="secondary" onClick={handleAddProductToCart}>

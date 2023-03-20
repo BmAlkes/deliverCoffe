@@ -6,9 +6,9 @@ import userReducer from "./user/user";
 
 export const store = configureStore({
   reducer: {
-    // user: userSlice,
     cart: cartReducer,
     product: productSlices,
+    // change to toolkit
     userReducer,
   },
 });
