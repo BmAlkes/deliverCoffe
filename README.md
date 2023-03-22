@@ -1,3 +1,3 @@
 <h1>Deliver Coffee</h1>
 
-<img src="" alt="Template site"/>
+<img src="./src/assets/4.png" alt="Template site"/>
