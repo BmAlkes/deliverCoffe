@@ -39,10 +39,6 @@ const CoffeeItem = ({ productId }: any) => {
 
   const dispatch = useDispatch();
 
-  // const handleAddProductToCart = () => {
-  //   dispatch(addProductToCart(productId));
-  // };
-
   const handleIncreaseQuantity = () => {
     dispatch(increaseCartProductQuantity(productId));
   };

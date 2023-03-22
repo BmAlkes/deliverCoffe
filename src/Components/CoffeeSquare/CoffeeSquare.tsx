@@ -8,7 +8,6 @@ export const CoffeeSection = () => {
   const listProduct = useAppSelector((state) => state.product.listProducts);
   return (
     <SquareContainer>
-      <div></div>
       {Object.keys(listProduct).map((id) => {
         return <CoffeeItem productId={id} key={id} />;
       })}

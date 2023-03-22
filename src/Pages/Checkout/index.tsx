@@ -30,6 +30,7 @@ import {
   selectProductTotalPrice,
   selectProductTotalPriceWithDelive,
 } from "src/store/cart/cart-selector";
+import AdressMap from "src/Components/Map/AdressMap";
 
 const CheckOut = () => {
   const [payment, setPayment] = useState("");
@@ -151,6 +152,7 @@ const CheckOut = () => {
             </button>
           </ButtonContainer>
         </DivContainer>
+        {/* <AdressMap /> */}
       </FormLeftSide>
       <CartRightSide>
         <h3>{t("TitleCart")}</h3>
