@@ -9,6 +9,7 @@ export const Container = styled.div`
   border-radius: 6px 36px;
   height: 310px;
   position: relative;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.15);
 
   img {
     position: absolute;
