@@ -38,7 +38,7 @@ export const BannerHome = () => {
       </div>
       <div>
         <img
-          src="https://res.cloudinary.com/binvent/image/upload/v1676461088/BInvent%20App/Imagem_hinxg6.png"
+          src="https://res.cloudinary.com/landingpage2/image/upload/v1676461088/BInvent%20App/Imagem_hinxg6.png"
           alt=""
         />
       </div>
