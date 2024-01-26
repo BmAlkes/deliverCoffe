@@ -98,7 +98,7 @@ const Login = () => {
   return (
     <LoginContainer>
       <img
-        src="https://res.cloudinary.com/binvent/image/upload/v1676461088/BInvent%20App/Imagem_hinxg6.png"
+        src="https://res-console.cloudinary.com/landingpage2/thumbnails/v1/image/upload/v1676461088/QkludmVudCBBcHAvSW1hZ2VtX2hpbnhnNg==/preview"
         alt=""
       />
       <div>
